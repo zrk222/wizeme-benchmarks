@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Run WizeMe evidence adapter
@@ -34,11 +34,10 @@ jobs:
       - name: Generate comparison report
         run: python scripts/generate_comparison_report.py
       - name: Upload results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: benchmark-results
           path: |
             results/
             comparison/latest.md
           retention-days: 30
-
