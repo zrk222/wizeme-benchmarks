@@ -8,20 +8,34 @@ from typing import Any
 from common import now_iso, read_json, write_json
 
 
-def comparison_key(result: dict[str, Any]) -> tuple[str, str, str, str, str]:
+def comparison_key(result: dict[str, Any]) -> tuple[str, ...]:
     dataset = result["dataset"]
     evaluation = result["evaluation"]
     return (
         dataset["name"],
         dataset["variant"],
         dataset["revision"],
+        evaluation.get("task", ""),
         evaluation["mode"],
+        evaluation.get("granularity", ""),
+        evaluation.get("evaluator_revision", ""),
         evaluation["metric_definition"],
     )
 
 
 def metric(value: Any, digits: int = 4) -> str:
     return "n/a" if value is None else f"{float(value):.{digits}f}"
+
+
+def primary_metrics(row: dict[str, Any]) -> tuple[Any, Any, Any]:
+    metrics = row["metrics"]
+    if "turn" in metrics:
+        return (
+            metrics["turn"].get("recall_any@3"),
+            metrics.get("fama"),
+            metrics.get("warm_latency", {}).get("p95_ms"),
+        )
+    return metrics.get("recall_at_3"), metrics.get("fama"), metrics.get("latency_p95_ms")
 
 
 def main() -> None:
@@ -45,20 +59,20 @@ def main() -> None:
             [
                 f"## {key[0]} / {key[1]}",
                 "",
-                f"Revision: `{key[2]}` | Mode: `{key[3]}`",
+                f"Revision: `{key[2]}` | Task: `{key[3]}` | Mode: `{key[4]}` | Granularity: `{key[5]}`",
                 "",
                 "| System | Recall@3 | FAMA | p95 ms | Runs | Evidence |",
                 "|---|---:|---:|---:|---:|---|",
             ]
         )
         for row in rows:
-            metrics = row["metrics"]
+            recall, fama, p95 = primary_metrics(row)
             lines.append(
                 "| {system} | {recall} | {fama} | {p95} | {runs} | {kind} |".format(
                     system=row["system"],
-                    recall=metric(metrics.get("recall_at_3")),
-                    fama=metric(metrics.get("fama")),
-                    p95=metric(metrics.get("latency_p95_ms"), 2),
+                    recall=metric(recall),
+                    fama=metric(fama),
+                    p95=metric(p95, 2),
                     runs=row["provenance"]["run_count"],
                     kind=row["dataset"]["kind"],
                 )

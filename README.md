@@ -22,17 +22,25 @@ metric definition, and evaluation mode. Missing competitor runs remain
 
 ## Current Evidence
 
-The checked-in WizeMe receipt is a synthetic regression run exported on
-2026-06-23. It reports:
+The repository now includes public retrieval receipts and the original
+synthetic regression receipt:
 
-| Lane | Recall@3 | FAMA | p95 |
+| Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
+| LoCoMo dialog-turn retrieval | 0.5116 | n/a | 27.574 ms |
+| LongMemEval-S turn retrieval | 0.9064 | n/a | 32.989 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
-| PersonaMem/Memora-style fixture | 1.0000 | 1.0000 | 5.07 ms |
 
-These are not LoCoMo, LongMemEval, or PersonaMem leaderboard scores. The report
-generator rejects cross-dataset comparisons and labels synthetic evidence.
+The LoCoMo and LongMemEval values are complete public-dataset retrieval runs,
+not end-to-end QA scores. The synthetic values remain regression evidence and
+are never mixed into public comparison groups.
+
+See [the public methods](comparison/METHODS.md), [the exact experiment
+profile](experiments/wizeme-public-retrieval-v1.json), and the raw receipts:
+
+- `results/runs/wizeme/locomo/retrieval-turn.json`
+- `results/runs/wizeme/longmemeval/retrieval-turn.json`
 
 ## Quick Start
 

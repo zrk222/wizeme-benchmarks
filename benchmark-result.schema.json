@@ -4,7 +4,7 @@
   "type": "object",
   "required": ["schema_version", "system", "status", "dataset", "evaluation", "metrics", "provenance"],
   "properties": {
-    "schema_version": {"const": "1.0"},
+    "schema_version": {"enum": ["1.0", "1.1"]},
     "system": {"type": "string", "minLength": 1},
     "status": {"enum": ["complete", "partial", "not_run", "failed"]},
     "dataset": {
@@ -13,7 +13,8 @@
       "properties": {
         "name": {"type": "string"},
         "variant": {"type": "string"},
-        "revision": {"type": "string"},
+        "revision": {"type": "string", "pattern": "^[a-f0-9]{40}$|^unassigned$|^20"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "kind": {"enum": ["public", "synthetic", "production-anonymized"]}
       }
     },
@@ -23,7 +24,9 @@
       "properties": {
         "task": {"type": "string"},
         "mode": {"enum": ["retrieval", "end_to_end_qa", "recommendation", "forgetting"]},
-        "metric_definition": {"type": "string"}
+        "metric_definition": {"type": "string"},
+        "evaluator_revision": {"type": "string"},
+        "granularity": {"type": "string"}
       }
     },
     "metrics": {"type": "object"},
@@ -34,10 +37,9 @@
         "generated_at": {"type": "string"},
         "source": {"type": "string"},
         "command": {"type": "string"},
-        "hardware": {"type": "string"},
+        "hardware": {"type": ["string", "object"]},
         "run_count": {"type": "integer", "minimum": 0}
       }
     }
   }
 }
-
