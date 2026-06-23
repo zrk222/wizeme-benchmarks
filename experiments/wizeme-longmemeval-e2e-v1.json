@@ -1,0 +1,23 @@
+{
+  "profile_id": "wizeme-longmemeval-e2e-v1",
+  "dataset": {
+    "name": "LongMemEval-S",
+    "revision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+  },
+  "retrieval_artifact": "results/runs/wizeme/longmemeval/retrieval-turn.json",
+  "answer": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.1-flash-lite-preview",
+    "temperature": 0,
+    "max_sessions": 8
+  },
+  "judge": {
+    "repository": "https://github.com/xiaowu0162/LongMemEval",
+    "revision": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+    "script": "src/evaluation/evaluate_qa.py",
+    "model": "gpt-4o",
+    "unmodified": true
+  },
+  "publication_gate": "Do not publish an end-to-end QA score until hypotheses, official judge output, model identifiers, revisions, and raw artifacts are present."
+}

@@ -18,6 +18,8 @@ metric definition, and evaluation mode. Missing competitor runs remain
 - [Latest comparison report](comparison/latest.md)
 - [Machine-readable comparison](results/comparison-latest.json)
 - [How to submit a system result](CONTRIBUTING.md)
+- [Submit a reproducible benchmark issue](https://github.com/zrk222/wizeme-benchmarks/issues/new?template=benchmark-result.yml)
+- [Scheduled benchmark workflow](https://github.com/zrk222/wizeme-benchmarks/actions/workflows/benchmark.yml)
 - [Citation metadata](CITATION.cff)
 
 ## Current Evidence
@@ -27,23 +29,46 @@ synthetic regression receipt:
 
 | Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.6473 | n/a | 177.497 ms |
-| LongMemEval-S turn retrieval | 0.9319 | n/a | 16.816 ms |
+| LoCoMo dialog-turn retrieval | 0.4849 | n/a | 13.210 ms |
+| LongMemEval-S turn retrieval | 0.9319 | n/a | 15.545 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
 
 The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
 with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
-uses a pinned local cross-encoder after hybrid candidate generation.
-LongMemEval uses session-first lexical retrieval with protected top-three turn
-localization and post-rank sibling evidence expansion. The synthetic values
-remain regression evidence and are never mixed into public comparison groups.
+uses the current low-latency public gate, `auto -> bm25`, on pinned
+`locomo10`. LongMemEval uses `auto -> session-bm25` with evidence expansion.
+The synthetic values remain regression evidence and are never mixed into
+public comparison groups.
 
 See [the public methods](comparison/METHODS.md), [the exact experiment
 profile](experiments/wizeme-public-retrieval-v1.json), and the raw receipts:
 
 - `results/runs/wizeme/locomo/retrieval-turn.json`
 - `results/runs/wizeme/longmemeval/retrieval-turn.json`
+
+End-to-end QA is intentionally separate:
+
+```bash
+python scripts/run_longmemeval_e2e.py \
+  --dataset datasets/cache/longmemeval/longmemeval_s_cleaned.json \
+  --retrieval results/runs/wizeme/longmemeval/retrieval-turn.json \
+  --hypotheses results/runs/wizeme/longmemeval/hypotheses.jsonl \
+  --result results/runs/wizeme/longmemeval/end-to-end-qa.json \
+  --answer-model google/gemini-3.1-flash-lite-preview
+
+python scripts/run_longmemeval_official_judge.py \
+  --hypotheses results/runs/wizeme/longmemeval/hypotheses.jsonl \
+  --result results/runs/wizeme/longmemeval/end-to-end-qa.json \
+  --revision 9e0b455f4ef0e2ab8f2e582289761153549043fc
+```
+
+The first step requires `OPENROUTER_API_KEY`; the official judge requires
+`OPENAI_API_KEY`. Without them the receipt remains explicitly incomplete.
+The same-mode QA comparison group already exists in
+`comparison/latest.md`; WizeMe is `partial` until hypotheses and the official
+judge run, while Supermemory, Mem0, and MemGPT are matched `not_run` rows until
+provider adapter commands and credentials are configured.
 
 ## Quick Start
 

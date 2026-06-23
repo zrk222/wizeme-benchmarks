@@ -25,3 +25,19 @@ per-query latencies and rankings are retained. Index construction is included
 in query latency. The local embedding model process remains loaded between
 runs; cold runs clear embedding and document-vector caches.
 
+## End-to-End QA
+
+Retrieval and answer quality are reported as separate modes. The pinned
+end-to-end profile is `experiments/wizeme-longmemeval-e2e-v1.json`.
+WizeMe first writes `question_id` plus `hypothesis` JSONL with a separately
+disclosed answer model. The unmodified official LongMemEval
+`src/evaluation/evaluate_qa.py` script is then checked out at commit
+`9e0b455f4ef0e2ab8f2e582289761153549043fc` and run with the official `gpt-4o`
+judge and oracle. Missing answer or judge credentials produce `not_run` or
+`partial`, never a substituted score.
+
+Provider QA comparison rows for Supermemory, Mem0, and MemGPT are emitted as
+matched `not_run` receipts under the same LongMemEval dataset revision,
+evaluation mode, metric definition, and official judge revision. They are not
+scores. They exist so the missing provider adapter work stays visible in the
+same comparison group instead of being hidden in prose.

@@ -20,6 +20,9 @@ software catalogs, and memory-system researchers.
 4. Submit the repository to Papers with Code or the relevant benchmark registry.
 5. Publish a methods post that links raw receipts, hardware, commands, and commit.
 6. Share the release with the LoCoMo, LongMemEval, and PersonaMem communities.
+7. Product Hunt promotion is pending external launch proof: load the live
+   Product Hunt URL and screenshot receipt before marking launch validation
+   complete.
 
 ## Suggested Paper Title
 
@@ -34,4 +37,3 @@ Avoid “perfect memory” in the title until public benchmark receipts support 
 Forgetting-Aware Accuracy”
 
 This title is discoverable without claiming results that have not been run.
-

@@ -29,6 +29,12 @@ def metric(value: Any, digits: int = 4) -> str:
 
 def primary_metrics(row: dict[str, Any]) -> tuple[Any, Any, Any]:
     metrics = row["metrics"]
+    if row.get("evaluation", {}).get("mode") == "end_to_end_qa":
+        return (
+            metrics.get("official_qa_score"),
+            None,
+            metrics.get("answer_latency_p95_ms") or metrics.get("answer_latency_mean_ms"),
+        )
     if "turn" in metrics:
         return (
             metrics["turn"].get("recall_any@3"),
@@ -42,8 +48,14 @@ def main() -> None:
     result_paths = sorted(Path("results/runs").rglob("*.json"))
     results = [read_json(path) for path in result_paths]
     complete = [result for result in results if result.get("status") == "complete"]
+    assigned = [
+        result
+        for result in results
+        if result.get("dataset", {}).get("revision") not in {"", "unassigned", None}
+        and result.get("evaluation", {}).get("task") not in {"", "unassigned", None}
+    ]
     groups: dict[tuple[str, ...], list[dict[str, Any]]] = defaultdict(list)
-    for result in complete:
+    for result in assigned:
         groups[comparison_key(result)].append(result)
 
     lines = [
@@ -61,27 +73,30 @@ def main() -> None:
                 "",
                 f"Revision: `{key[2]}` | Task: `{key[3]}` | Mode: `{key[4]}` | Granularity: `{key[5]}`",
                 "",
-                "| System | Recall@3 | FAMA | p95 ms | Runs | Evidence |",
-                "|---|---:|---:|---:|---:|---|",
+                "| System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |",
+                "|---|---|---:|---:|---:|---:|---|---|",
             ]
         )
         for row in rows:
             recall, fama, p95 = primary_metrics(row)
             lines.append(
-                "| {system} | {recall} | {fama} | {p95} | {runs} | {kind} |".format(
+                "| {system} | {status} | {recall} | {fama} | {p95} | {runs} | {kind} | {boundary} |".format(
                     system=row["system"],
+                    status=row["status"],
                     recall=metric(recall),
                     fama=metric(fama),
                     p95=metric(p95, 2),
                     runs=row["provenance"]["run_count"],
                     kind=row["dataset"]["kind"],
+                    boundary=str(row.get("provenance", {}).get("boundary", "")).replace("|", "/"),
                 )
             )
         lines.append("")
-        if len(rows) < 2:
+        complete_rows = [row for row in rows if row.get("status") == "complete"]
+        if len(complete_rows) < 2:
             lines.extend(
                 [
-                    "> No direct competitor receipt matches this dataset, revision, mode, and metric definition.",
+                    "> No complete competitor receipt matches this dataset, revision, mode, and metric definition.",
                     "",
                 ]
             )

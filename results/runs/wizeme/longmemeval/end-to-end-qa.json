@@ -1,0 +1,32 @@
+{
+  "dataset": {
+    "kind": "public",
+    "name": "LongMemEval",
+    "revision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "sha256": "D6F21EA9D60A0D56F34A05B609C79C88A451D2AE03597821EA3D5A9678C3A442",
+    "variant": "longmemeval-s-cleaned-turn"
+  },
+  "evaluation": {
+    "evaluator_revision": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+    "granularity": "answer",
+    "metric_definition": "Official LongMemEval answer generation plus the unmodified official gpt-4o judge.",
+    "mode": "end_to_end_qa",
+    "task": "long-term-memory-qa"
+  },
+  "metrics": {},
+  "provenance": {
+    "answer_model": "google/gemini-3.1-flash-lite-preview",
+    "answer_prompt_sha256": "f74a4b595fb2e517ee34b5d579a781e9520e8755defa2408ea031cbee3f9fbd4",
+    "answer_provider": "openrouter",
+    "boundary": "Hypotheses may exist, but the official LongMemEval gpt-4o judge was not run.",
+    "command": "OPENROUTER_API_KEY required",
+    "generated_at": "2026-06-23T11:53:58.628570Z",
+    "hardware": "Windows-10-10.0.26200-SP0",
+    "official_judge": "not_run: OPENAI_API_KEY required",
+    "run_count": 0,
+    "source": "scripts/run_longmemeval_e2e.py"
+  },
+  "schema_version": "1.0",
+  "status": "partial",
+  "system": "WizeMe"
+}

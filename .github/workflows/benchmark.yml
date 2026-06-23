@@ -29,6 +29,30 @@ jobs:
           python scripts/run_external.py --system supermemory --output results/runs/supermemory.json
           python scripts/run_external.py --system mem0 --output results/runs/mem0.json
           python scripts/run_external.py --system memgpt --output results/runs/memgpt.json
+      - name: Emit same-mode LongMemEval QA receipts
+        run: |
+          python scripts/run_longmemeval_e2e.py \
+            --dataset datasets/cache/longmemeval/longmemeval_s_cleaned.json \
+            --retrieval results/runs/wizeme/longmemeval/retrieval-turn.json \
+            --hypotheses results/runs/wizeme/longmemeval/hypotheses.jsonl \
+            --result results/runs/wizeme/longmemeval/end-to-end-qa.json \
+            --answer-model google/gemini-3.1-flash-lite-preview
+          python scripts/run_longmemeval_official_judge.py \
+            --hypotheses results/runs/wizeme/longmemeval/hypotheses.jsonl \
+            --result results/runs/wizeme/longmemeval/end-to-end-qa.json \
+            --revision 9e0b455f4ef0e2ab8f2e582289761153549043fc
+          python scripts/write_pending_longmemeval_provider_qa.py \
+            --system Supermemory \
+            --output results/runs/supermemory/longmemeval/end-to-end-qa.json \
+            --reason "SUPERMEMORY_COMMAND and provider credentials are not configured."
+          python scripts/write_pending_longmemeval_provider_qa.py \
+            --system Mem0 \
+            --output results/runs/mem0/longmemeval/end-to-end-qa.json \
+            --reason "MEM0_COMMAND and provider credentials are not configured."
+          python scripts/write_pending_longmemeval_provider_qa.py \
+            --system MemGPT \
+            --output results/runs/memgpt/longmemeval/end-to-end-qa.json \
+            --reason "MEMGPT_COMMAND and provider credentials are not configured."
       - name: Validate normalized results
         run: python scripts/validate_results.py
       - name: Generate comparison report
