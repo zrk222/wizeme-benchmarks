@@ -76,13 +76,14 @@
     </div>
   </header>
   <main>
-    <div class="notice"><strong>Evidence boundary:</strong> LoCoMo and LongMemEval values below are public retrieval results, not end-to-end QA scores. The same-mode LongMemEval QA group is wired but pending answer-model, official-judge, and provider-adapter receipts. Product Hunt launch proof is also pending external URL/screenshot receipt.</div>
+    <div class="notice"><strong>Evidence boundary:</strong> LoCoMo and LongMemEval values below are public retrieval results, not end-to-end QA scores. Rubrics gate retrieval quality, feasibility, latency, provenance, and claim safety; they are not a live proofreader or intent classifier. The same-mode LongMemEval QA group is wired but pending answer-model, official-judge, and provider-adapter receipts. Product Hunt launch proof is also pending external URL/screenshot receipt.</div>
     <h2>Current WizeMe public retrieval receipts</h2>
     <div class="metrics">
-      <div class="metric"><strong>0.4849</strong><span>LoCoMo Recall Any@3</span></div>
-      <div class="metric"><strong>0.9319</strong><span>LongMemEval Recall Any@3</span></div>
-      <div class="metric"><strong>13.210 ms</strong><span>LoCoMo warm p95</span></div>
+      <div class="metric"><strong>0.6428</strong><span>LoCoMo Recall Any@3</span></div>
+      <div class="metric"><strong>0.9255</strong><span>LongMemEval Recall Any@3</span></div>
+      <div class="metric"><strong>6.790 ms</strong><span>LoCoMo warm p95</span></div>
     </div>
+    <p>LoCoMo now uses pinned benchmark-neutral learned reranking over the top eight hybrid candidates. Cold p95 is 239.535 ms and remains explicitly disclosed; the warm result reflects bounded revision-keyed pair-score caching. LongMemEval retrieval clears the 0.92 Any@3 target with 9.195 ms warm p95 and 9.576 ms cold p95.</p>
     <h2>Comparison contract</h2>
     <table>
       <thead><tr><th>Required match</th><th>Why it matters</th></tr></thead>

@@ -5,9 +5,14 @@ metric definition, and timing boundary match.
 
 ## Allowed Now
 
-"On pinned public retrieval runs, WizeMe reached LoCoMo Recall Any@3 0.4849
-with 13.210 ms warm p95 and LongMemEval-S Recall Any@3 0.9319 with 15.545 ms
-warm p95. Each result includes three cold and three warm timed runs."
+"On pinned public retrieval runs, WizeMe reached LoCoMo Recall Any@3 0.6428
+with 6.790 ms warm p95 and 239.535 ms cold p95, and LongMemEval-S Recall
+Any@3 0.9255 with 9.195 ms warm p95 and 9.576 ms cold p95. Each result
+includes three cold and three warm timed runs."
+
+"WizeMe uses rubrics as publication and evidence gates for retrieval quality,
+multi-evidence feasibility, latency, provenance, freshness/forgetting, and
+claim safety. Rubrics are not a live intent-classifier or proofreader layer."
 
 "The same-mode LongMemEval end-to-end QA group is wired, but all rows remain
 unpublishable as scores until WizeMe/provider hypotheses and the official

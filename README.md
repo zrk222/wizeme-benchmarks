@@ -29,15 +29,16 @@ synthetic regression receipt:
 
 | Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.4849 | n/a | 13.210 ms |
-| LongMemEval-S turn retrieval | 0.9319 | n/a | 15.545 ms |
+| LoCoMo dialog-turn retrieval | 0.6428 | n/a | 6.790 ms |
+| LongMemEval-S turn retrieval | 0.9255 | n/a | 9.195 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
 
 The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
 with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
-uses the current low-latency public gate, `auto -> bm25`, on pinned
-`locomo10`. LongMemEval uses `auto -> session-bm25` with evidence expansion.
+uses `auto -> hybrid-cross` with a pinned benchmark-neutral learned reranker on
+pinned `locomo10`. LongMemEval uses `auto -> session-bm25` with adaptive dense
+evidence expansion.
 The synthetic values remain regression evidence and are never mixed into
 public comparison groups.
 
@@ -123,6 +124,10 @@ memory” require:
 
 Until those conditions pass, use: “WizeMe’s synthetic regression suite reached
 1.0 Recall@3 and 1.0 FAMA; public benchmark comparison is in progress.”
+
+Rubrics are publication and evidence gates: retrieval quality, multi-evidence
+feasibility, latency, provenance, freshness/forgetting, and claim safety. They
+are not a live intent-classifier or proofreader layer.
 
 ## Sources
 
