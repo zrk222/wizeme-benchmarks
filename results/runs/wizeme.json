@@ -1,0 +1,36 @@
+{
+  "dataset": {
+    "kind": "synthetic",
+    "name": "WizeMe memory regression suite",
+    "revision": "2026-06-23T05:13:35.746Z",
+    "variant": "synthetic-2026-06-23"
+  },
+  "evaluation": {
+    "metric_definition": "Recall@3 retrieves relevant evidence in the first three results; FAMA penalizes retrieval of invalid or obsolete memories.",
+    "mode": "retrieval",
+    "task": "retrieval-continuity-forgetting"
+  },
+  "metrics": {
+    "cached_repeat_p95_ms": 0.24,
+    "fama": 1.0,
+    "latency_p95_ms": 15.66,
+    "long_term_latency_p95_ms": 1.58,
+    "long_term_recall_at_3": 1.0,
+    "mrr_at_3": 0.9808,
+    "persona_fama": 1.0,
+    "persona_recall_at_3": 1.0,
+    "recall_at_3": 1.0,
+    "vector_path_p95_ms": 6.15
+  },
+  "provenance": {
+    "boundary": "Synthetic regression evidence only; not a public LoCoMo, LongMemEval, or PersonaMem score.",
+    "command": "pnpm benchmark:memory-retrieval",
+    "generated_at": "2026-06-23T05:13:35.746Z",
+    "hardware": "Windows local development workstation; exact CPU and RAM not captured",
+    "run_count": 1,
+    "source": "zoria/docs/reviews/memory-retrieval-benchmark-latest.json"
+  },
+  "schema_version": "1.0",
+  "status": "complete",
+  "system": "WizeMe"
+}

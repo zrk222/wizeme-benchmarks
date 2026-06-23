@@ -1,0 +1,41 @@
+name: Submit a benchmark result
+description: Propose a reproducible memory-system result for the public index.
+title: "[result] System / dataset / revision"
+labels: ["benchmark-result"]
+body:
+  - type: input
+    id: system
+    attributes:
+      label: System
+    validations:
+      required: true
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset and revision
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Evaluation mode
+      options:
+        - Retrieval
+        - End-to-end QA
+        - Recommendation
+        - Forgetting
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction command and repository
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Raw result, hardware, timing boundary, and run count
+    validations:
+      required: true
+

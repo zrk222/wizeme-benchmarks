@@ -1,0 +1,39 @@
+{
+  "locomo": {
+    "publisher": "snap-research",
+    "revision": "main",
+    "url": "https://raw.githubusercontent.com/snap-research/locomo/main/data/locomo10.json",
+    "output": "locomo/locomo10.json",
+    "source": "https://github.com/snap-research/locomo"
+  },
+  "longmemeval-s": {
+    "publisher": "xiaowu0162",
+    "revision": "longmemeval-cleaned/main",
+    "url": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/main/longmemeval_s_cleaned.json",
+    "output": "longmemeval/longmemeval_s_cleaned.json",
+    "source": "https://github.com/xiaowu0162/LongMemEval"
+  },
+  "longmemeval-m": {
+    "publisher": "xiaowu0162",
+    "revision": "longmemeval-cleaned/main",
+    "url": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/main/longmemeval_m_cleaned.json",
+    "output": "longmemeval/longmemeval_m_cleaned.json",
+    "source": "https://github.com/xiaowu0162/LongMemEval"
+  },
+  "personamem-32k": {
+    "publisher": "bowen-upenn",
+    "revision": "main",
+    "files": [
+      {
+        "url": "https://huggingface.co/datasets/bowen-upenn/PersonaMem/resolve/main/questions_32k.csv",
+        "output": "personamem/questions_32k.csv"
+      },
+      {
+        "url": "https://huggingface.co/datasets/bowen-upenn/PersonaMem/resolve/main/shared_contexts_32k.jsonl",
+        "output": "personamem/shared_contexts_32k.jsonl"
+      }
+    ],
+    "source": "https://github.com/bowen-upenn/PersonaMem"
+  }
+}
+

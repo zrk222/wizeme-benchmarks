@@ -1,0 +1,24 @@
+{
+  "dataset": {
+    "kind": "public",
+    "name": "unassigned",
+    "revision": "unassigned",
+    "variant": "unassigned"
+  },
+  "evaluation": {
+    "metric_definition": "No adapter command configured.",
+    "mode": "retrieval",
+    "task": "unassigned"
+  },
+  "metrics": {},
+  "provenance": {
+    "command": "",
+    "generated_at": "2026-06-23T05:39:30.891364Z",
+    "hardware": "not captured",
+    "run_count": 0,
+    "source": "Adapter command is not configured."
+  },
+  "schema_version": "1.0",
+  "status": "not_run",
+  "system": "supermemory"
+}

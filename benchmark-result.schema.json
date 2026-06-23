@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WizeMe benchmark result",
+  "type": "object",
+  "required": ["schema_version", "system", "status", "dataset", "evaluation", "metrics", "provenance"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "system": {"type": "string", "minLength": 1},
+    "status": {"enum": ["complete", "partial", "not_run", "failed"]},
+    "dataset": {
+      "type": "object",
+      "required": ["name", "variant", "revision", "kind"],
+      "properties": {
+        "name": {"type": "string"},
+        "variant": {"type": "string"},
+        "revision": {"type": "string"},
+        "kind": {"enum": ["public", "synthetic", "production-anonymized"]}
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["task", "mode", "metric_definition"],
+      "properties": {
+        "task": {"type": "string"},
+        "mode": {"enum": ["retrieval", "end_to_end_qa", "recommendation", "forgetting"]},
+        "metric_definition": {"type": "string"}
+      }
+    },
+    "metrics": {"type": "object"},
+    "provenance": {
+      "type": "object",
+      "required": ["generated_at", "source", "command", "hardware", "run_count"],
+      "properties": {
+        "generated_at": {"type": "string"},
+        "source": {"type": "string"},
+        "command": {"type": "string"},
+        "hardware": {"type": "string"},
+        "run_count": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}
+

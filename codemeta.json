@@ -1,0 +1,30 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "WizeMe Benchmarks",
+  "description": "A provenance-first harness and public result index for LoCoMo, LongMemEval, PersonaMem, FAMA, retrieval recall, latency, and forgetting-aware conversational memory evaluation.",
+  "codeRepository": "https://github.com/zrk222/wizeme-benchmarks",
+  "issueTracker": "https://github.com/zrk222/wizeme-benchmarks/issues",
+  "license": "https://spdx.org/licenses/MIT",
+  "dateCreated": "2026-06-23",
+  "programmingLanguage": ["Python", "Docker"],
+  "keywords": [
+    "AI memory benchmark",
+    "conversational memory",
+    "long-term memory",
+    "LoCoMo",
+    "LongMemEval",
+    "PersonaMem",
+    "FAMA",
+    "ANN",
+    "HNSW",
+    "Mem0",
+    "Supermemory",
+    "MemGPT"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "WizeMe"
+  }
+}
+

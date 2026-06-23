@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this benchmark harness or its normalized result format, please cite it."
+title: "WizeMe Benchmarks: Reproducible Long-Term Memory Evaluation"
+type: software
+authors:
+  - name: WizeMe
+version: 0.1.0
+date-released: 2026-06-23
+url: "https://github.com/zrk222/wizeme-benchmarks"
+repository-code: "https://github.com/zrk222/wizeme-benchmarks"
+license: MIT
+keywords:
+  - artificial intelligence memory
+  - conversational memory
+  - long-term memory
+  - memory retrieval
+  - LoCoMo
+  - LongMemEval
+  - PersonaMem
+  - FAMA
+  - forgetting-aware accuracy
+  - approximate nearest neighbor
+  - HNSW
+

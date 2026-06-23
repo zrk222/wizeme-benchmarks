@@ -1,0 +1,20 @@
+{
+  "comparison_group_count": 1,
+  "complete_result_count": 1,
+  "generated_at": "2026-06-23T05:43:12.319315Z",
+  "groups": [
+    {
+      "key": [
+        "WizeMe memory regression suite",
+        "synthetic-2026-06-23",
+        "2026-06-23T05:13:35.746Z",
+        "retrieval",
+        "Recall@3 retrieves relevant evidence in the first three results; FAMA penalizes retrieval of invalid or obsolete memories."
+      ],
+      "systems": [
+        "WizeMe"
+      ]
+    }
+  ],
+  "pending_result_count": 3
+}

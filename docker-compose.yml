@@ -1,0 +1,67 @@
+services:
+  wizeme-benchmark:
+    build: .
+    command:
+      - scripts/run_wizeme.py
+      - --input
+      - datasets/manifests/wizeme-synthetic-regression.json
+      - --output
+      - results/runs/wizeme.json
+    volumes:
+      - ./results:/bench/results
+
+  comparison-report:
+    build: .
+    command:
+      - scripts/run_suite.py
+    volumes:
+      - ./results:/bench/results
+      - ./comparison:/bench/comparison
+
+  supermemory-benchmark:
+    profiles: ["competitors"]
+    build: .
+    command:
+      - scripts/run_external.py
+      - --system
+      - supermemory
+      - --command-env
+      - SUPERMEMORY_COMMAND
+      - --output
+      - results/runs/supermemory.json
+    environment:
+      SUPERMEMORY_COMMAND: ${SUPERMEMORY_COMMAND:-}
+    volumes:
+      - ./results:/bench/results
+
+  mem0-benchmark:
+    profiles: ["competitors"]
+    build: .
+    command:
+      - scripts/run_external.py
+      - --system
+      - mem0
+      - --command-env
+      - MEM0_COMMAND
+      - --output
+      - results/runs/mem0.json
+    environment:
+      MEM0_COMMAND: ${MEM0_COMMAND:-}
+    volumes:
+      - ./results:/bench/results
+
+  memgpt-benchmark:
+    profiles: ["competitors"]
+    build: .
+    command:
+      - scripts/run_external.py
+      - --system
+      - memgpt
+      - --command-env
+      - MEMGPT_COMMAND
+      - --output
+      - results/runs/memgpt.json
+    environment:
+      MEMGPT_COMMAND: ${MEMGPT_COMMAND:-}
+    volumes:
+      - ./results:/bench/results

@@ -1,0 +1,44 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run WizeMe evidence adapter
+        run: |
+          python scripts/run_wizeme.py \
+            --input datasets/manifests/wizeme-synthetic-regression.json \
+            --output results/runs/wizeme.json
+      - name: Emit explicit pending competitor receipts
+        run: |
+          python scripts/run_external.py --system supermemory --output results/runs/supermemory.json
+          python scripts/run_external.py --system mem0 --output results/runs/mem0.json
+          python scripts/run_external.py --system memgpt --output results/runs/memgpt.json
+      - name: Validate normalized results
+        run: python scripts/validate_results.py
+      - name: Generate comparison report
+        run: python scripts/generate_comparison_report.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            results/
+            comparison/latest.md
+          retention-days: 30
+

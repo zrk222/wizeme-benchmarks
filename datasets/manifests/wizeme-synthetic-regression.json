@@ -1,0 +1,27 @@
+{
+  "source_generated_at": "2026-06-23T05:13:35.746Z",
+  "source": "zoria/docs/reviews/memory-retrieval-benchmark-latest.json",
+  "hardware": "Windows local development workstation; exact CPU and RAM not captured",
+  "semantic_ann": {
+    "query_count": 26,
+    "recall_at_3": 1.0,
+    "mrr_at_3": 0.9808,
+    "latency_p95_ms": 15.66,
+    "vector_path_p95_ms": 6.15,
+    "cached_repeat_p95_ms": 0.24
+  },
+  "long_term": {
+    "query_count": 8,
+    "recall_at_3": 1.0,
+    "fama": 1.0,
+    "latency_p95_ms": 1.58
+  },
+  "persona_memora": {
+    "query_count": 6,
+    "recall_at_3": 1.0,
+    "fama": 1.0,
+    "latency_p95_ms": 5.07
+  },
+  "boundary": "Synthetic regression evidence only; not a public LoCoMo, LongMemEval, or PersonaMem score."
+}
+
