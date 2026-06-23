@@ -27,14 +27,17 @@ synthetic regression receipt:
 
 | Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.5116 | n/a | 27.574 ms |
-| LongMemEval-S turn retrieval | 0.9064 | n/a | 32.989 ms |
+| LoCoMo dialog-turn retrieval | 0.6473 | n/a | 177.497 ms |
+| LongMemEval-S turn retrieval | 0.9319 | n/a | 16.816 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
 
-The LoCoMo and LongMemEval values are complete public-dataset retrieval runs,
-not end-to-end QA scores. The synthetic values remain regression evidence and
-are never mixed into public comparison groups.
+The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
+with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
+uses a pinned local cross-encoder after hybrid candidate generation.
+LongMemEval uses session-first lexical retrieval with protected top-three turn
+localization and post-rank sibling evidence expansion. The synthetic values
+remain regression evidence and are never mixed into public comparison groups.
 
 See [the public methods](comparison/METHODS.md), [the exact experiment
 profile](experiments/wizeme-public-retrieval-v1.json), and the raw receipts:

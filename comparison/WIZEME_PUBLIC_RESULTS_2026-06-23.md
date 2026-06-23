@@ -1,37 +1,36 @@
 # WizeMe Public Memory Retrieval Results
 
-Generated from WizeMe commit `3c8c8f82` on June 23, 2026.
+Generated from WizeMe commit `0bc50fd7` on June 23, 2026.
 
 ## Results
 
 | Dataset | Queries | Recall Any@1 | Recall Any@3 | Recall All@5 | nDCG@5 | Cold p95 | Warm p95 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| LoCoMo dialog turns | 1,982 | 0.3330 | 0.5116 | 0.5055 | 0.4970 | 52.878 ms | 27.574 ms |
-| LongMemEval-S turns | 470 | 0.8319 | 0.9064 | 0.0362 | 0.7009 | 29.722 ms | 32.989 ms |
+| LoCoMo dialog turns | 1,982 | 0.4945 | 0.6473 | 0.5969 | 0.6202 | 269.005 ms | 177.497 ms |
+| LongMemEval-S turns | 470 | 0.8426 | 0.9319 | 0.0191 | 0.5705 | 19.440 ms | 16.816 ms |
 
 LongMemEval excludes 30 abstention questions, matching its official retrieval
 protocol. LoCoMo excludes questions without annotated dialog evidence.
 
 ## Tuning Decisions
 
-- WizeMe reranking improved a 100-query LoCoMo slice from 0.4000 to 0.4600
-  Recall Any@3, but doubled p95 and slightly reduced LongMemEval accuracy.
-- Local BGE-small plus BM25 reciprocal-rank fusion reached 0.5600 on that
-  LoCoMo slice and generalized to 0.5700 on a disjoint 300-query slice.
-- BGE-base did not improve Recall Any@3 and was not selected.
-- Session propagation did not improve held-out Recall Any@3 and was rejected.
-- The final LoCoMo profile uses pinned BGE-small with vector weight 0.56 and
-  lexical weight 0.44.
-- The final LongMemEval profile uses the lower-latency BM25 rail.
+- A pinned MiniLM cross-encoder reranking the top 18 hybrid candidates lifted
+  full LoCoMo Recall Any@3 from 0.5116 to 0.6473.
+- The cross-encoder is a deep-retrieval lane because its 177.497 ms warm p95 is
+  materially slower than the lexical hot path.
+- LongMemEval now ranks compact sessions before localizing turns. This lifted
+  Recall Any@3 from 0.9064 to 0.9319 while reducing warm p95 to 16.816 ms.
+- Multi-evidence expansion begins after the protected top three. It preserved
+  Recall Any@3 and lifted Recall All@50 from 0.0750 to 0.4000.
+- Bayesian evidence support and harmonic agreement combine independent lexical
+  and semantic ranks without allowing one score scale to dominate.
 
 ## Honest Weaknesses
 
 - LoCoMo dialog-turn localization remains moderate. The next credible lift
-  requires stronger query-to-evidence semantic training or a benchmark-neutral
+  requires query-to-evidence relevance training beyond the benchmark-neutral
   cross-encoder, not more handcrafted synonyms.
-- LongMemEval Recall Any@3 is 0.9064, below the 0.92 target by 0.0136.
-- Recall All is low on multi-evidence questions. WizeMe often retrieves one
-  correct answer turn without retrieving every answer-labeled turn.
+- LongMemEval Recall Any@3 clears the 0.92 target, but Recall All remains low at
+  small k because answer sessions contain many labeled evidence turns.
 - These are retrieval metrics. End-to-end QA must use a separately pinned
   answer model and official answer evaluator.
-
