@@ -1,12 +1,12 @@
 # WizeMe Public Memory Retrieval Results
 
-Generated from pinned WizeMe public retrieval receipts on June 23, 2026.
+Generated from pinned WizeMe public retrieval receipts on June 24, 2026.
 
 ## Results
 
 | Dataset | Queries | Recall Any@1 | Recall Any@3 | Recall All@5 | nDCG@5 | Cold p95 | Warm p95 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| LoCoMo dialog turns | 1,982 | 0.4228 | 0.6428 | 0.6504 | 0.6467 | 239.535 ms | 6.790 ms |
+| LoCoMo dialog turns | 1,982 | 0.4228 | 0.6625 | 0.6493 | 0.6401 | 196.453 ms | 5.942 ms |
 | LongMemEval-S turns | 470 | 0.8426 | 0.9255 | 0.0532 | 0.7071 | 9.576 ms | 9.195 ms |
 
 LongMemEval excludes 30 abstention questions, matching its official retrieval
@@ -15,10 +15,11 @@ protocol. LoCoMo excludes questions without annotated dialog evidence.
 ## Tuning Decisions
 
 - A pinned benchmark-neutral MiniLM cross-encoder reranking the top eight hybrid
-  candidates lifted full LoCoMo Recall Any@3 from 0.4849 to 0.6428 and Recall
-  All@3 from 0.4157 to 0.5459.
-- A bounded model-revision-keyed pair cache reduced learned LoCoMo warm p95 to
-  6.790 ms. Genuinely cold inference remains disclosed at 239.535 ms p95.
+  candidates plus safe session-dense evidence buffering lifted full LoCoMo
+  Recall Any@3 from 0.4849 to 0.6625 and Recall All@3 from 0.4157 to 0.5666.
+- A bounded model-revision-keyed pair cache plus evidence buffering reduced
+  learned LoCoMo warm p95 to 5.942 ms. Genuinely cold inference remains
+  disclosed at 196.453 ms p95.
 - LongMemEval ranks compact sessions before localizing turns and expands around
   ranked anchors with adaptive dense evidence packing. Recall Any@3 remains
   above target at 0.9255.

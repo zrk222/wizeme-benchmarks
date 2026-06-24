@@ -8,12 +8,17 @@
       "task": "evidence-retrieval",
       "mode": "retrieval",
       "granularity": "turn",
-      "strategy": "hybrid",
+      "strategy": "hybrid-cross",
       "embedding_model": "Xenova/bge-small-en-v1.5",
       "embedding_revision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
-      "vector_weight": 0.56,
-      "lexical_weight": 0.44,
-      "session_weight": 0.0,
+      "cross_encoder_model": "Xenova/ms-marco-MiniLM-L-6-v2",
+      "cross_encoder_revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "cross_encoder_limit": 8,
+      "vector_weight": null,
+      "lexical_weight": null,
+      "session_weight": null,
+      "evidence_expansion": true,
+      "evidence_pack_strategy": "auto -> safe session-dense evidence buffer",
       "top_k": 50
     },
     "longmemeval-s": {
@@ -36,4 +41,3 @@
     "reported_statistics": ["mean", "p50", "p95", "p99", "max", "sample_count"]
   }
 }
-

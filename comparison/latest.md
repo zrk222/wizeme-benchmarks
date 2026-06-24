@@ -1,6 +1,6 @@
 # Memory Benchmark Comparison
 
-Generated: 2026-06-23T18:54:48.582779Z
+Generated: 2026-06-24T02:50:50.807883Z
 
 Only rows inside the same comparison group are directly comparable.
 
@@ -23,7 +23,7 @@ Revision: `3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376` | Task: `evidence-retrieval
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.6428 | n/a | 6.79 | 6 | public |  |
+| WizeMe | complete | 0.6625 | n/a | 5.94 | 6 | public |  |
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 

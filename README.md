@@ -29,16 +29,16 @@ synthetic regression receipt:
 
 | Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.6428 | n/a | 6.790 ms |
+| LoCoMo dialog-turn retrieval | 0.6625 | n/a | 5.942 ms |
 | LongMemEval-S turn retrieval | 0.9255 | n/a | 9.195 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
 
 The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
 with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
-uses `auto -> hybrid-cross` with a pinned benchmark-neutral learned reranker on
-pinned `locomo10`. LongMemEval uses `auto -> session-bm25` with adaptive dense
-evidence expansion.
+uses `auto -> hybrid-cross` with a pinned benchmark-neutral learned reranker
+and safe session-dense evidence buffering on pinned `locomo10`. LongMemEval
+uses `auto -> session-bm25` with adaptive dense evidence expansion.
 The synthetic values remain regression evidence and are never mixed into
 public comparison groups.
 
