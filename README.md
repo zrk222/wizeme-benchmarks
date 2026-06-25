@@ -29,24 +29,33 @@ synthetic regression receipt:
 
 | Lane | Recall Any@3 | FAMA | Warm p95 |
 |---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.6625 | n/a | 5.942 ms |
-| LongMemEval-S turn retrieval | 0.9255 | n/a | 9.195 ms |
+| LoCoMo dialog-turn retrieval | 0.7124 | n/a | 17.159 ms |
+| LoCoMo dialog-turn fast route | 0.7079 | n/a | 8.625 ms |
+| LongMemEval-S turn retrieval | 0.9255 | n/a | 11.005 ms |
 | Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
 | Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
 
 The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
 with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
-uses `auto -> hybrid-cross` with a pinned benchmark-neutral learned reranker
-and safe session-dense evidence buffering on pinned `locomo10`. LongMemEval
-uses `auto -> session-bm25` with adaptive dense evidence expansion.
+uses `auto -> hybrid-cross` with adaptive mesh routing, deterministic signature
+rerank, and safe evidence packing on pinned `locomo10`. LongMemEval uses
+`auto -> session-bm25` with adaptive dense evidence expansion.
 The synthetic values remain regression evidence and are never mixed into
 public comparison groups.
+
+LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3
+measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval
+Any@3 measures answer-cluster retrieval across a larger haystack. Both are
+reported raw without cross-benchmark normalization, so 92.55% is not a universal
+score across all memory tasks.
 
 See [the public methods](comparison/METHODS.md), [the exact experiment
 profile](experiments/wizeme-public-retrieval-v1.json), and the raw receipts:
 
 - `results/runs/wizeme/locomo/retrieval-turn.json`
 - `results/runs/wizeme/longmemeval/retrieval-turn.json`
+- `results/wizeme-memory-lift-2026-06-25.json`
+- `comparison/memory-lift-report-engineer-2026.06.25.md`
 
 End-to-end QA is intentionally separate:
 

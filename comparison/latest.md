@@ -1,8 +1,10 @@
 # Memory Benchmark Comparison
 
-Generated: 2026-06-24T02:50:50.807883Z
+Generated: 2026-06-25T18:59:51.732666Z
 
 Only rows inside the same comparison group are directly comparable.
+
+LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported raw without cross-benchmark normalization.
 
 ## LongMemEval / longmemeval-s-cleaned-turn
 
@@ -23,7 +25,7 @@ Revision: `3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376` | Task: `evidence-retrieval
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.6625 | n/a | 5.94 | 6 | public |  |
+| WizeMe | complete | 0.7124 | n/a | 17.16 | 6 | public |  |
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 
@@ -33,7 +35,7 @@ Revision: `98d7416c24c778c2fee6e6f3006e7a073259d48f` | Task: `evidence-retrieval
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.9255 | n/a | 9.20 | 6 | public |  |
+| WizeMe | complete | 0.9255 | n/a | 11.01 | 6 | public |  |
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 

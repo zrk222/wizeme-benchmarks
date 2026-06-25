@@ -8,6 +8,13 @@
 - Ground truth: annotated `qa[].evidence` dialog IDs
 - Questions without evidence are excluded
 - Metrics: Recall Any, Recall All, and nDCG
+- Current accuracy route: `auto -> hybrid-cross`, vector weight `0.35`,
+  lexical weight `0.60`, session weight `0.05`, cross-encoder limit `14`,
+  adaptive mesh candidate profile, deterministic signature rerank, safe
+  evidence packing, top-k `50`.
+- Current fast route: same public dataset and retrieval mode, signature rerank
+  disabled for lower warm p95; publish only with its small accuracy trade-off
+  and cold latency disclosed.
 
 ## LongMemEval-S
 
@@ -24,6 +31,11 @@ Every published public result contains three cold and three warm runs. Raw
 per-query latencies and rankings are retained. Index construction is included
 in query latency. The local embedding model process remains loaded between
 runs; cold runs clear embedding and document-vector caches.
+
+LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3
+measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval
+Any@3 measures answer-cluster retrieval across a larger haystack. Both are
+reported raw without cross-benchmark normalization.
 
 ## End-to-End QA
 

@@ -65,6 +65,11 @@ def main() -> None:
         "",
         "Only rows inside the same comparison group are directly comparable.",
         "",
+        "LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 "
+        "measures exact-turn retrieval across 272 tightly clustered sessions. "
+        "LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. "
+        "Both are reported raw without cross-benchmark normalization.",
+        "",
     ]
     for key, rows in groups.items():
         lines.extend(

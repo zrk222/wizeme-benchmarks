@@ -76,14 +76,14 @@
     </div>
   </header>
   <main>
-    <div class="notice"><strong>Evidence boundary:</strong> LoCoMo and LongMemEval values below are public retrieval results, not end-to-end QA scores. Rubrics gate retrieval quality, feasibility, latency, provenance, and claim safety; they are not a live proofreader or intent classifier. The same-mode LongMemEval QA group is wired but pending answer-model, official-judge, and provider-adapter receipts. Product Hunt launch proof is also pending external URL/screenshot receipt.</div>
+    <div class="notice"><strong>Evidence boundary:</strong> LoCoMo and LongMemEval values below are public retrieval results, not end-to-end QA scores. LoCoMo Any@3 measures exact-turn retrieval across tightly clustered sessions; LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported raw without cross-benchmark normalization. Rubrics gate retrieval quality, feasibility, latency, provenance, and claim safety; they are not a live proofreader or intent classifier. The same-mode LongMemEval QA group is wired but pending answer-model, official-judge, and provider-adapter receipts. Product Hunt launch proof is also pending external URL/screenshot receipt.</div>
     <h2>Current WizeMe public retrieval receipts</h2>
     <div class="metrics">
-      <div class="metric"><strong>0.6625</strong><span>LoCoMo Recall Any@3</span></div>
+      <div class="metric"><strong>0.7124</strong><span>LoCoMo Recall Any@3</span></div>
       <div class="metric"><strong>0.9255</strong><span>LongMemEval Recall Any@3</span></div>
-      <div class="metric"><strong>5.942 ms</strong><span>LoCoMo warm p95</span></div>
+      <div class="metric"><strong>8.625 ms</strong><span>LoCoMo fast warm p95</span></div>
     </div>
-    <p>LoCoMo now uses pinned benchmark-neutral learned reranking over the top eight hybrid candidates plus safe session-dense evidence buffering. Cold p95 is 196.453 ms and remains explicitly disclosed; the warm result reflects bounded revision-keyed pair-score caching and evidence buffering. LongMemEval retrieval clears the 0.92 Any@3 target with 9.195 ms warm p95 and 9.576 ms cold p95.</p>
+    <p>LoCoMo now uses adaptive mesh routing, deterministic signature rerank, and safe evidence packing. The accuracy route reaches 0.7124 Any@3 with 17.159 ms warm p95 and 422.520 ms cold p95; the fast route reaches 0.7079 Any@3 with 8.625 ms warm p95. LongMemEval retrieval clears the 0.92 Any@3 target with 11.005 ms warm p95 and 13.094 ms cold p95.</p>
     <h2>Comparison contract</h2>
     <table>
       <thead><tr><th>Required match</th><th>Why it matters</th></tr></thead>

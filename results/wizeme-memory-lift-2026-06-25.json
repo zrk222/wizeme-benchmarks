@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "memory_benchmark_lift_receipt_v1",
+  "generatedAt": "2026-06-25T18:54:12.511Z",
+  "status": "positive_lift_below_10pct_target",
+  "sources": {
+    "baselineFull": "docs/reviews/locomo-evidence-pack-full-latest.json",
+    "candidateFull": "docs/reviews/locomo-evidence-pack-full-auto-default-limit14-3x3.json",
+    "candidateFastFull": "docs/reviews/locomo-evidence-pack-full-auto-default-limit14-nosignature-3x3.json",
+    "priorProbe": "docs/reviews/locomo-probe-auto-default-mesh-signature-300.json",
+    "candidateProbe": "docs/reviews/locomo-probe-auto-default-limit14-300.json",
+    "longMemEvalGuard": "docs/reviews/longmemeval-auto-default-guard-post-limit14-3x3.json",
+    "compactFallback": "docs/reviews/memory-benchmark-lift-latest.json"
+  },
+  "comparisons": {
+    "locomoFullOneRunVsBaseline": {
+      "baseline": {
+        "queryCount": 1982,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 8,
+        "crossEncoderProfile": null,
+        "deterministicSignatureRerank": false,
+        "recallAny3": 0.6625,
+        "recallAll3": 0.5666,
+        "recallAll50": 0.7921,
+        "evidenceCoverage10": 0.7657,
+        "coldP95Ms": 244.955,
+        "warmP95Ms": 7.52,
+        "coldRuns": 3,
+        "warmRuns": 3,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "candidate": {
+        "queryCount": 1982,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 14,
+        "crossEncoderProfile": "adaptive_mesh",
+        "deterministicSignatureRerank": true,
+        "recallAny3": 0.7124,
+        "recallAll3": 0.607,
+        "recallAll50": 0.8042,
+        "evidenceCoverage10": 0.7853,
+        "coldP95Ms": 422.52,
+        "warmP95Ms": 17.159,
+        "coldRuns": 3,
+        "warmRuns": 3,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "delta": {
+        "recallAny3": {
+          "absolute": 0.0499,
+          "relativePct": 7.53
+        },
+        "recallAll3": {
+          "absolute": 0.0404,
+          "relativePct": 7.13
+        },
+        "recallAll50": {
+          "absolute": 0.0121,
+          "relativePct": 1.53
+        },
+        "evidenceCoverage10": {
+          "absolute": 0.0196,
+          "relativePct": 2.56
+        },
+        "coldP95Ms": {
+          "absoluteMs": 177.565,
+          "relativePct": 72.49
+        },
+        "warmP95Ms": {
+          "absoluteMs": 9.639,
+          "relativePct": 128.18
+        }
+      },
+      "sameModeDisclosure": "Baseline and candidate are both full-dataset retrieval gates with at least three cold and three warm timed runs. Publish with latency and retrieval-vs-QA boundaries disclosed."
+    },
+    "locomoFastFullOneRunVsBaseline": {
+      "baseline": {
+        "queryCount": 1982,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 8,
+        "crossEncoderProfile": null,
+        "deterministicSignatureRerank": false,
+        "recallAny3": 0.6625,
+        "recallAll3": 0.5666,
+        "recallAll50": 0.7921,
+        "evidenceCoverage10": 0.7657,
+        "coldP95Ms": 244.955,
+        "warmP95Ms": 7.52,
+        "coldRuns": 3,
+        "warmRuns": 3,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "candidate": {
+        "queryCount": 1982,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 14,
+        "crossEncoderProfile": "adaptive_mesh",
+        "deterministicSignatureRerank": false,
+        "recallAny3": 0.7079,
+        "recallAll3": 0.6044,
+        "recallAll50": 0.8042,
+        "evidenceCoverage10": 0.7832,
+        "coldP95Ms": 455.423,
+        "warmP95Ms": 8.625,
+        "coldRuns": 3,
+        "warmRuns": 3,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "delta": {
+        "recallAny3": {
+          "absolute": 0.0454,
+          "relativePct": 6.85
+        },
+        "recallAll3": {
+          "absolute": 0.0378,
+          "relativePct": 6.67
+        },
+        "recallAll50": {
+          "absolute": 0.0121,
+          "relativePct": 1.53
+        },
+        "evidenceCoverage10": {
+          "absolute": 0.0175,
+          "relativePct": 2.29
+        },
+        "coldP95Ms": {
+          "absoluteMs": 210.468,
+          "relativePct": 85.92
+        },
+        "warmP95Ms": {
+          "absoluteMs": 1.105,
+          "relativePct": 14.69
+        }
+      },
+      "sameModeDisclosure": "Fast candidate disables deterministic signature rerank. It preserves most of the full-dataset accuracy lift while materially lowering warm p95 versus the accuracy route; publish only with the accuracy trade-off and higher cold p95 disclosed."
+    },
+    "locomoProbeVsPriorDefaultProbe": {
+      "baseline": {
+        "queryCount": 300,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 12,
+        "crossEncoderProfile": "adaptive_mesh",
+        "deterministicSignatureRerank": true,
+        "recallAny3": 0.73,
+        "recallAll3": 0.6567,
+        "recallAll50": 0.8367,
+        "evidenceCoverage10": 0.8092,
+        "coldP95Ms": 352.187,
+        "warmP95Ms": 16.317,
+        "coldRuns": 1,
+        "warmRuns": 1,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "candidate": {
+        "queryCount": 300,
+        "strategy": "hybrid-cross",
+        "requestedStrategy": "auto",
+        "crossEncoderLimit": 14,
+        "crossEncoderProfile": "adaptive_mesh",
+        "deterministicSignatureRerank": true,
+        "recallAny3": 0.7367,
+        "recallAll3": 0.6633,
+        "recallAll50": 0.85,
+        "evidenceCoverage10": 0.8134,
+        "coldP95Ms": 432.723,
+        "warmP95Ms": 15.595,
+        "coldRuns": 1,
+        "warmRuns": 1,
+        "datasetRevision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "datasetSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4"
+      },
+      "delta": {
+        "recallAny3": {
+          "absolute": 0.0067,
+          "relativePct": 0.92
+        },
+        "recallAll3": {
+          "absolute": 0.0066,
+          "relativePct": 1.01
+        },
+        "recallAll50": {
+          "absolute": 0.0133,
+          "relativePct": 1.59
+        },
+        "evidenceCoverage10": {
+          "absolute": 0.0042,
+          "relativePct": 0.52
+        },
+        "coldP95Ms": {
+          "absoluteMs": 80.536,
+          "relativePct": 22.87
+        },
+        "warmP95Ms": {
+          "absoluteMs": -0.722,
+          "relativePct": -4.42
+        }
+      },
+      "sameModeDisclosure": "Both are 300-query single-run probes. Use for tuning direction only."
+    }
+  },
+  "longMemEvalGuard": {
+    "queryCount": 470,
+    "strategy": "session-bm25",
+    "requestedStrategy": "auto",
+    "crossEncoderLimit": null,
+    "crossEncoderProfile": null,
+    "deterministicSignatureRerank": false,
+    "recallAny3": 0.9255,
+    "recallAll3": 0.0362,
+    "recallAll50": 0.4532,
+    "evidenceCoverage10": 0.6365,
+    "coldP95Ms": 13.094,
+    "warmP95Ms": 11.005,
+    "coldRuns": 3,
+    "warmRuns": 3,
+    "datasetRevision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "datasetSha256": "D6F21EA9D60A0D56F34A05B609C79C88A451D2AE03597821EA3D5A9678C3A442",
+    "rawTurnAll3Ceiling": 0.0511,
+    "answerClusterAll3Ceiling": 0.9319
+  },
+  "corpusScale": {
+    "locomo": {
+      "samples": 10,
+      "sessions": 272,
+      "turns": 5882,
+      "questions": 1986
+    },
+    "longMemEval": {
+      "rows": 500,
+      "evaluatedQueries": 500,
+      "uniqueHaystackSessions": 19195,
+      "summedHaystackSessions": 23867,
+      "summedHaystackTurnLike": 246750,
+      "note": "LongMemEval rows carry per-question haystack slices; summed haystack counts are not deduplicated turn-level corpus totals."
+    }
+  },
+  "datasetManifestProof": {
+    "deterministicSeed": "memory-benchmark-lift-loader-v1",
+    "locomo": {
+      "id": "locomo10",
+      "path": "../wizeme-benchmarks/datasets/cache/locomo/locomo10.json",
+      "rawSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4",
+      "expectedSha256": "79FA87E90F04081343B8C8DEBECB80A9A6842B76A7AA537DC9FDF651EA698FF4",
+      "sha256MatchesExpected": true,
+      "deterministicSeed": "memory-benchmark-lift-loader-v1",
+      "cardinality": {
+        "samples": 10,
+        "sessions": 272,
+        "turns": 5882,
+        "questions": 1986
+      },
+      "deterministicCardinality": true,
+      "status": "verified",
+      "wallClockPassesMs": [
+        32.714,
+        21.851,
+        22.224
+      ],
+      "wallClockP95Ms": 32.714,
+      "p95Disclosure": "p95 over three deterministic loader passes is the max sample; this validates generator freshness overhead, not retrieval latency.",
+      "manifestSha256": "073D50213F146BDEBDF880ED269DD67AAE5D545E2C7AA3BA2EFCDBB5D82BBB74"
+    },
+    "longMemEval": {
+      "id": "longmemeval_s_cleaned",
+      "path": "../wizeme-benchmarks/datasets/cache/longmemeval/longmemeval_s_cleaned.json",
+      "rawSha256": "D6F21EA9D60A0D56F34A05B609C79C88A451D2AE03597821EA3D5A9678C3A442",
+      "expectedSha256": "D6F21EA9D60A0D56F34A05B609C79C88A451D2AE03597821EA3D5A9678C3A442",
+      "sha256MatchesExpected": true,
+      "deterministicSeed": "memory-benchmark-lift-loader-v1",
+      "cardinality": {
+        "rows": 500,
+        "evaluatedQueries": 500,
+        "uniqueHaystackSessions": 19195,
+        "summedHaystackSessions": 23867,
+        "summedHaystackTurnLike": 246750,
+        "note": "LongMemEval rows carry per-question haystack slices; summed haystack counts are not deduplicated turn-level corpus totals."
+      },
+      "deterministicCardinality": true,
+      "status": "verified",
+      "wallClockPassesMs": [
+        3352.282,
+        3897.601,
+        4576.939
+      ],
+      "wallClockP95Ms": 4576.939,
+      "p95Disclosure": "p95 over three deterministic loader passes is the max sample; this validates generator freshness overhead, not retrieval latency.",
+      "manifestSha256": "E831A5E5D8EC9B25E9D09A7FA8DB191740EE43767ADB4C6006D0CF82C4409AD8"
+    }
+  },
+  "benchmarkProtocolDisclosure": "LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported raw without cross-benchmark normalization.",
+  "claimBoundary": "Publish as an updated public retrieval gate with raw artifacts, pinned dataset revision, hardware/runtime metadata, percentages for novice readers, and cold/warm latency disclosed. Do not market it as end-to-end QA, medical advice, public SOTA, or same-mode provider superiority."
+}
