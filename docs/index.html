@@ -76,14 +76,14 @@
     </div>
   </header>
   <main>
-    <div class="notice"><strong>Evidence boundary:</strong> LoCoMo and LongMemEval values below are public retrieval results, not end-to-end QA scores. LoCoMo Any@3 measures exact-turn retrieval across tightly clustered sessions; LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported raw without cross-benchmark normalization. Rubrics gate retrieval quality, feasibility, latency, provenance, and claim safety; they are not a live proofreader or intent classifier. The same-mode LongMemEval QA group is wired but pending answer-model, official-judge, and provider-adapter receipts. Product Hunt launch proof is also pending external URL/screenshot receipt.</div>
-    <h2>Current WizeMe public retrieval receipts</h2>
+    <div class="notice"><strong>Evidence boundary:</strong> Retrieval and end-to-end QA are separate metric families. LoCoMo Any@3 measures exact-turn retrieval across tightly clustered sessions; LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. The 300-question LoCoMo QA gate is not a full-dataset or same-mode provider leaderboard claim. Public artifacts disclose outcomes and reproducibility boundaries while withholding implementation configuration and private traces.</div>
+    <h2>Current WizeMe public receipts</h2>
     <div class="metrics">
-      <div class="metric"><strong>0.7124</strong><span>LoCoMo Recall Any@3</span></div>
-      <div class="metric"><strong>0.9255</strong><span>LongMemEval Recall Any@3</span></div>
-      <div class="metric"><strong>8.625 ms</strong><span>LoCoMo fast warm p95</span></div>
+      <div class="metric"><strong>79.33%</strong><span>LoCoMo E2E QA accepted gate</span></div>
+      <div class="metric"><strong>93.19%</strong><span>LongMemEval Recall Any@3</span></div>
+      <div class="metric"><strong>18.777 ms</strong><span>LoCoMo low-latency cold p95</span></div>
     </div>
-    <p>LoCoMo now uses adaptive mesh routing, deterministic signature rerank, and safe evidence packing. The accuracy route reaches 0.7124 Any@3 with 17.159 ms warm p95 and 422.520 ms cold p95; the fast route reaches 0.7079 Any@3 with 8.625 ms warm p95. LongMemEval retrieval clears the 0.92 Any@3 target with 11.005 ms warm p95 and 13.094 ms cold p95.</p>
+    <p>The accepted 300-question LoCoMo end-to-end QA gate improved from 73.33% to 79.33%. LoCoMo full retrieval reaches 71.24% Any@3; its low-latency full gate records 18.777 ms cold p95. LongMemEval retrieval reaches 93.19% Any@3 with 11.827 ms cold p95. See the permanent <a href="https://doi.org/10.5281/zenodo.20970433">Zenodo receipt</a>.</p>
     <h2>Comparison contract</h2>
     <table>
       <thead><tr><th>Required match</th><th>Why it matters</th></tr></thead>

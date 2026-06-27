@@ -3,10 +3,12 @@
   "@type": "SoftwareSourceCode",
   "name": "WizeMe Benchmarks",
   "description": "A provenance-first harness and public result index for LoCoMo, LongMemEval, PersonaMem, FAMA, retrieval recall, latency, and forgetting-aware conversational memory evaluation.",
+  "identifier": "https://doi.org/10.5281/zenodo.20970433",
   "codeRepository": "https://github.com/zrk222/wizeme-benchmarks",
   "issueTracker": "https://github.com/zrk222/wizeme-benchmarks/issues",
   "license": "https://spdx.org/licenses/MIT",
   "dateCreated": "2026-06-23",
+  "dateModified": "2026-06-27",
   "programmingLanguage": ["Python", "Docker"],
   "keywords": [
     "AI memory benchmark",
@@ -27,4 +29,3 @@
     "name": "WizeMe"
   }
 }
-

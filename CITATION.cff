@@ -4,10 +4,11 @@ title: "WizeMe Benchmarks: Reproducible Long-Term Memory Evaluation"
 type: software
 authors:
   - name: WizeMe
-version: 0.1.0
-date-released: 2026-06-23
+version: 0.2.0
+date-released: 2026-06-27
 url: "https://github.com/zrk222/wizeme-benchmarks"
 repository-code: "https://github.com/zrk222/wizeme-benchmarks"
+doi: "10.5281/zenodo.20970433"
 license: MIT
 keywords:
   - artificial intelligence memory
@@ -21,4 +22,3 @@ keywords:
   - forgetting-aware accuracy
   - approximate nearest neighbor
   - HNSW
-

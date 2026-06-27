@@ -1,7 +1,7 @@
 {
-  "comparison_group_count": 4,
-  "complete_result_count": 3,
-  "generated_at": "2026-06-25T18:59:51.733667Z",
+  "comparison_group_count": 5,
+  "complete_result_count": 5,
+  "generated_at": "2026-06-27T17:47:53.082826Z",
   "groups": [
     {
       "key": [
@@ -24,13 +24,29 @@
     {
       "key": [
         "LoCoMo",
+        "locomo10-e2e-qa-300",
+        "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+        "answer-quality",
+        "end_to_end_qa",
+        "question",
+        "wizeme-e2e-qa-harness-2026-06-27",
+        "Judged answer accuracy produced from retrieved LoCoMo evidence in the WizeMe 300-question QA harness."
+      ],
+      "systems": [
+        "WizeMe",
+        "WizeMe prior gate"
+      ]
+    },
+    {
+      "key": [
+        "LoCoMo",
         "locomo10-dialog-turn",
         "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
         "evidence-retrieval",
         "retrieval",
         "turn",
         "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
-        "LoCoMo dialog-turn evidence retrieval against annotated dia_id values; questions without evidence excluded."
+        "LoCoMo dialog-turn evidence retrieval against annotated evidence IDs; questions without labeled evidence are excluded."
       ],
       "systems": [
         "WizeMe"
@@ -45,7 +61,7 @@
         "retrieval",
         "turn",
         "98d7416c24c778c2fee6e6f3006e7a073259d48f",
-        "Official LongMemEval retrieval semantics: Recall Any/All and nDCG over answer-labeled user turns; abstention questions excluded."
+        "LongMemEval retrieval semantics over answer-labeled user turns; abstention questions are excluded."
       ],
       "systems": [
         "WizeMe"

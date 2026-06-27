@@ -31,7 +31,7 @@ def primary_metrics(row: dict[str, Any]) -> tuple[Any, Any, Any]:
     metrics = row["metrics"]
     if row.get("evaluation", {}).get("mode") == "end_to_end_qa":
         return (
-            metrics.get("official_qa_score"),
+            metrics.get("accuracy") or metrics.get("official_qa_score"),
             None,
             metrics.get("answer_latency_p95_ms") or metrics.get("answer_latency_mean_ms"),
         )
@@ -68,7 +68,7 @@ def main() -> None:
         "LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 "
         "measures exact-turn retrieval across 272 tightly clustered sessions. "
         "LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. "
-        "Both are reported raw without cross-benchmark normalization.",
+        "Both are reported without cross-benchmark normalization.",
         "",
     ]
     for key, rows in groups.items():

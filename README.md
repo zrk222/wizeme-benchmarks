@@ -24,40 +24,38 @@ metric definition, and evaluation mode. Missing competitor runs remain
 
 ## Current Evidence
 
-The repository now includes public retrieval receipts and the original
-synthetic regression receipt:
+Retrieval and end-to-end QA are separate metric families:
 
-| Lane | Recall Any@3 | FAMA | Warm p95 |
-|---|---:|---:|---:|
-| LoCoMo dialog-turn retrieval | 0.7124 | n/a | 17.159 ms |
-| LoCoMo dialog-turn fast route | 0.7079 | n/a | 8.625 ms |
-| LongMemEval-S turn retrieval | 0.9255 | n/a | 11.005 ms |
-| Semantic ANN | 1.0000 | n/a | 15.66 ms end-to-end |
-| Long-term continuity fixture | 1.0000 | 1.0000 | 1.58 ms |
+| Lane | Scope | Primary result | Supporting result | p95 |
+|---|---|---:|---:|---:|
+| LoCoMo retrieval | 1,982 questions | Any@3 0.7124 (71.24%) | All@3 0.6070 (60.70%) | 422.520/17.159 ms cold/warm |
+| LoCoMo low-latency retrieval | 1,982 questions | Any@3 0.7109 (71.09%) | Any@15 0.8643 (86.43%) | 18.777/20.107 ms cold/warm |
+| LongMemEval retrieval | 470 questions | Any@3 0.9319 (93.19%) | All@50 0.8489 (84.89%) | 11.827/13.382 ms cold/warm |
+| LoCoMo E2E QA accepted gate | 300 questions | Accuracy 0.7933 (79.33%) | Official-style mean 0.7147 (71.47%) | 7.232/1.070 s answer/judge |
+| LoCoMo E2E QA prior gate | 300 questions | Accuracy 0.7333 (73.33%) | Official-style mean 0.7052 (70.52%) | 7.524/1.073 s answer/judge |
 
-The LoCoMo and LongMemEval values are complete public-dataset retrieval runs
-with three cold and three warm timed passes, not end-to-end QA scores. LoCoMo
-uses `auto -> hybrid-cross` with adaptive mesh routing, deterministic signature
-rerank, and safe evidence packing on pinned `locomo10`. LongMemEval uses
-`auto -> session-bm25` with adaptive dense evidence expansion.
-The synthetic values remain regression evidence and are never mixed into
-public comparison groups.
+The accepted LoCoMo QA gate improved by 6.00 percentage points over the matched
+prior gate. It is a scoped 300-question WizeMe harness result, not a full-dataset
+or same-mode provider leaderboard score.
 
 LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3
-measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval
+measures exact-turn retrieval across tightly clustered sessions. LongMemEval
 Any@3 measures answer-cluster retrieval across a larger haystack. Both are
-reported raw without cross-benchmark normalization, so 92.55% is not a universal
-score across all memory tasks.
+reported without cross-benchmark normalization.
 
-See [the public methods](comparison/METHODS.md), [the exact experiment
-profile](experiments/wizeme-public-retrieval-v1.json), and the raw receipts:
+Public artifacts disclose dataset revisions, hashes, scope, metrics, timing
+boundaries, hardware class, and cache state. WizeMe implementation
+configuration and private diagnostic traces are intentionally withheld.
 
-- `results/runs/wizeme/locomo/retrieval-turn.json`
-- `results/runs/wizeme/longmemeval/retrieval-turn.json`
-- `results/wizeme-memory-lift-2026-06-25.json`
-- `comparison/memory-lift-report-engineer-2026.06.25.md`
+See [the public methods](comparison/METHODS.md), the aggregate receipts under
+`results/runs/wizeme/`, and the permanent Zenodo record:
 
-End-to-end QA is intentionally separate:
+- [Zenodo DOI 10.5281/zenodo.20970433](https://doi.org/10.5281/zenodo.20970433)
+- `comparison/WIZEME_PUBLIC_RESULTS_2026-06-27.md`
+- `results/wizeme-public-memory-benchmark-2026-06-27.json`
+- `results/wizeme-public-memory-datapackage-2026-06-27.json`
+
+The separate official LongMemEval QA workflow remains:
 
 ```bash
 python scripts/run_longmemeval_e2e.py \
@@ -73,12 +71,11 @@ python scripts/run_longmemeval_official_judge.py \
   --revision 9e0b455f4ef0e2ab8f2e582289761153549043fc
 ```
 
-The first step requires `OPENROUTER_API_KEY`; the official judge requires
-`OPENAI_API_KEY`. Without them the receipt remains explicitly incomplete.
-The same-mode QA comparison group already exists in
-`comparison/latest.md`; WizeMe is `partial` until hypotheses and the official
-judge run, while Supermemory, Mem0, and MemGPT are matched `not_run` rows until
-provider adapter commands and credentials are configured.
+The first step requires an answer-model credential; the official judge requires
+the credential specified by the pinned evaluator. Without both, the receipt
+remains explicitly incomplete. Provider rows remain `not_run` until their
+adapters execute under the same dataset revision, answer model, judge, prompt,
+retrieval depth, cache state, and hardware disclosure.
 
 ## Quick Start
 

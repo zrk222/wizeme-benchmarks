@@ -1,10 +1,10 @@
 # Memory Benchmark Comparison
 
-Generated: 2026-06-25T18:59:51.732666Z
+Generated: 2026-06-27T17:47:53.081825Z
 
 Only rows inside the same comparison group are directly comparable.
 
-LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported raw without cross-benchmark normalization.
+LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3 measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. Both are reported without cross-benchmark normalization.
 
 ## LongMemEval / longmemeval-s-cleaned-turn
 
@@ -19,13 +19,22 @@ Revision: `98d7416c24c778c2fee6e6f3006e7a073259d48f` | Task: `long-term-memory-q
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 
+## LoCoMo / locomo10-e2e-qa-300
+
+Revision: `3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376` | Task: `answer-quality` | Mode: `end_to_end_qa` | Granularity: `question`
+
+| System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
+|---|---|---:|---:|---:|---:|---|---|
+| WizeMe | complete | 0.7933 | n/a | 7232.00 | 1 | public | Scoped 300-question tuning gate. Not a full-dataset or same-mode provider leaderboard result. |
+| WizeMe prior gate | complete | 0.7333 | n/a | 7524.00 | 1 | public | Prior scoped 300-question gate used only for the matched six-point lift comparison. |
+
 ## LoCoMo / locomo10-dialog-turn
 
 Revision: `3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376` | Task: `evidence-retrieval` | Mode: `retrieval` | Granularity: `turn`
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.7124 | n/a | 17.16 | 6 | public |  |
+| WizeMe | complete | 0.7124 | n/a | 17.16 | 6 | public | Retrieval metric only. This row is not an end-to-end QA score. |
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 
@@ -35,7 +44,7 @@ Revision: `98d7416c24c778c2fee6e6f3006e7a073259d48f` | Task: `evidence-retrieval
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.9255 | n/a | 11.01 | 6 | public |  |
+| WizeMe | complete | 0.9319 | n/a | 13.38 | 6 | public | Benchmark-specific retrieval metric; not cross-normalized with LoCoMo. |
 
 > No complete competitor receipt matches this dataset, revision, mode, and metric definition.
 

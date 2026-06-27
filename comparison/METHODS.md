@@ -8,13 +8,9 @@
 - Ground truth: annotated `qa[].evidence` dialog IDs
 - Questions without evidence are excluded
 - Metrics: Recall Any, Recall All, and nDCG
-- Current accuracy route: `auto -> hybrid-cross`, vector weight `0.35`,
-  lexical weight `0.60`, session weight `0.05`, cross-encoder limit `14`,
-  adaptive mesh candidate profile, deterministic signature rerank, safe
-  evidence packing, top-k `50`.
-- Current fast route: same public dataset and retrieval mode, signature rerank
-  disabled for lower warm p95; publish only with its small accuracy trade-off
-  and cold latency disclosed.
+- Public receipts disclose outcomes, scope, timing boundaries, dataset hashes,
+  and hardware metadata.
+- Internal retrieval configuration and diagnostic traces are withheld.
 
 ## LongMemEval-S
 
@@ -27,10 +23,10 @@
 
 ## Timing
 
-Every published public result contains three cold and three warm runs. Raw
-per-query latencies and rankings are retained. Index construction is included
-in query latency. The local embedding model process remains loaded between
-runs; cold runs clear embedding and document-vector caches.
+Every published retrieval result contains three cold and three warm runs.
+Aggregate public receipts disclose p95 latency and cache-state boundaries.
+Detailed per-query traces are retained for controlled review because they can
+reveal implementation configuration.
 
 LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3
 measures exact-turn retrieval across 272 tightly clustered sessions. LongMemEval
@@ -40,13 +36,16 @@ reported raw without cross-benchmark normalization.
 ## End-to-End QA
 
 Retrieval and answer quality are reported as separate modes. The pinned
-end-to-end profile is `experiments/wizeme-longmemeval-e2e-v1.json`.
-WizeMe first writes `question_id` plus `hypothesis` JSONL with a separately
-disclosed answer model. The unmodified official LongMemEval
+LongMemEval end-to-end workflow writes `question_id` plus `hypothesis` JSONL
+with a separately disclosed answer model. The unmodified official LongMemEval
 `src/evaluation/evaluate_qa.py` script is then checked out at commit
 `9e0b455f4ef0e2ab8f2e582289761153549043fc` and run with the official `gpt-4o`
 judge and oracle. Missing answer or judge credentials produce `not_run` or
 `partial`, never a substituted score.
+
+The separate LoCoMo 300-question WizeMe QA harness reports judged accuracy,
+an official-style mean, answer latency, and judge latency. It is clearly
+labeled as a tuning gate and is not mixed with official provider rows.
 
 Provider QA comparison rows for Supermemory, Mem0, and MemGPT are emitted as
 matched `not_run` receipts under the same LongMemEval dataset revision,

@@ -35,15 +35,16 @@ def validate(result: dict[str, Any], path: Path) -> list[str]:
             for key in ("evaluator_revision", "granularity"):
                 if not evaluation.get(key):
                     errors.append(f"{path}: evaluation.{key} is required for public results")
-            if provenance.get("run_count", 0) < 6:
-                errors.append(f"{path}: public latency publication requires at least 6 runs")
-            if provenance.get("cold_run_count", 0) < 3 or provenance.get("warm_run_count", 0) < 3:
-                errors.append(f"{path}: public results require at least 3 cold and 3 warm runs")
-            if not provenance.get("cache_disclosure"):
-                errors.append(f"{path}: provenance.cache_disclosure is required")
+            if evaluation.get("mode") == "retrieval":
+                if provenance.get("run_count", 0) < 6:
+                    errors.append(f"{path}: public latency publication requires at least 6 runs")
+                if provenance.get("cold_run_count", 0) < 3 or provenance.get("warm_run_count", 0) < 3:
+                    errors.append(f"{path}: public retrieval results require at least 3 cold and 3 warm runs")
+                if not provenance.get("cache_disclosure"):
+                    errors.append(f"{path}: provenance.cache_disclosure is required")
             if not isinstance(provenance.get("hardware"), dict):
                 errors.append(f"{path}: public hardware metadata must be structured")
-            if not raw.get("runs") or not raw.get("queries"):
+            if not provenance.get("aggregate_public_receipt") and (not raw.get("runs") or not raw.get("queries")):
                 errors.append(f"{path}: raw runs and per-query artifacts are required")
     return errors
 

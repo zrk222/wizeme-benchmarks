@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "system": "WizeMe",
+  "status": "complete",
+  "dataset": {
+    "name": "LoCoMo",
+    "variant": "locomo10-e2e-qa-300",
+    "revision": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "kind": "public"
+  },
+  "evaluation": {
+    "task": "answer-quality",
+    "mode": "end_to_end_qa",
+    "granularity": "question",
+    "metric_definition": "Judged answer accuracy produced from retrieved LoCoMo evidence in the WizeMe 300-question QA harness.",
+    "evaluator_revision": "wizeme-e2e-qa-harness-2026-06-27"
+  },
+  "metrics": {
+    "query_count": 300,
+    "correct": 238,
+    "accuracy": 0.7933,
+    "official_style_mean": 0.7147,
+    "answer_latency_p95_ms": 7232,
+    "judge_latency_p95_ms": 1070
+  },
+  "provenance": {
+    "generated_at": "2026-06-27T15:42:54.518Z",
+    "source": "WizeMe LoCoMo end-to-end QA harness",
+    "command": "Aggregate public receipt; answer and judge configuration retained for controlled review.",
+    "hardware": {
+      "class": "Windows x64 local evaluation workstation"
+    },
+    "run_count": 1,
+    "aggregate_public_receipt": true,
+    "artifact_url": "https://zenodo.org/records/20970433",
+    "boundary": "Scoped 300-question tuning gate. Not a full-dataset or same-mode provider leaderboard result."
+  }
+}
