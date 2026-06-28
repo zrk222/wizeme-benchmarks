@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "wizeme_public_locomo_e2e_stability_v1",
+  "generatedAt": "2026-06-28T02:39:24.553Z",
+  "status": "complete",
+  "dataset": {
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "evaluatedPerRun": 300,
+    "coreEvaluatedPerRun": 231,
+    "adversarialEvaluatedPerRun": 69
+  },
+  "protocol": {
+    "runCount": 3,
+    "task": "evidence-grounded end-to-end QA",
+    "mode": "dual-candidate quality lane",
+    "categoryDisclosure": "All-category, core Categories 1-4, and adversarial Category 5 are reported separately.",
+    "cacheDisclosure": "E2E answer-model runs over the same pinned retrieval receipt; retrieval cold/warm latency is reported separately.",
+    "boundary": "Three deterministic 300-question WizeMe harness runs. Not the full 1,982-question LoCoMo E2E gate and not a same-mode provider row."
+  },
+  "metrics": {
+    "allCategoryAccuracy": {
+      "mean": 0.8367,
+      "min": 0.83,
+      "max": 0.84,
+      "samples": [
+        0.83,
+        0.84,
+        0.84
+      ]
+    },
+    "coreCategories1To4Accuracy": {
+      "mean": 0.873,
+      "min": 0.8701,
+      "max": 0.8745,
+      "samples": [
+        0.8745,
+        0.8745,
+        0.8701
+      ]
+    },
+    "adversarialCategory5Accuracy": {
+      "mean": 0.715,
+      "min": 0.6812,
+      "max": 0.7391,
+      "samples": [
+        0.6812,
+        0.7246,
+        0.7391
+      ]
+    },
+    "officialStyleMean": {
+      "mean": 0.7083,
+      "min": 0.6982,
+      "max": 0.7139,
+      "samples": [
+        0.6982,
+        0.7139,
+        0.7127
+      ]
+    },
+    "answerP95Ms": {
+      "mean": 14052.3333,
+      "min": 13702,
+      "max": 14630,
+      "samples": [
+        13702,
+        14630,
+        13825
+      ]
+    },
+    "judgeP95Ms": {
+      "mean": 10140,
+      "min": 7223,
+      "max": 12893,
+      "samples": [
+        12893,
+        7223,
+        10304
+      ]
+    },
+    "wallClockMs": {
+      "mean": 677880,
+      "min": 667463,
+      "max": 686565,
+      "samples": [
+        686565,
+        667463,
+        679612
+      ]
+    }
+  },
+  "runs": [
+    {
+      "run": 1,
+      "artifactSha256": "38c81e4b80128902bc38df0da73aac289288a6c000f73951994dc0a69328ccd5",
+      "generatedAt": "2026-06-27T20:15:29.034Z",
+      "evaluated": 300,
+      "allCategoryAccuracy": 0.83,
+      "coreAccuracy": 0.8745,
+      "adversarialAccuracy": 0.6812,
+      "officialStyleMean": 0.6982,
+      "answerP95Ms": 13702,
+      "judgeP95Ms": 12893,
+      "wallClockMs": 686565
+    },
+    {
+      "run": 2,
+      "artifactSha256": "cd395cfbf99dc8dc10a1582e147dc456f1cfeef0e02e2eed1df10151e281b8a5",
+      "generatedAt": "2026-06-27T20:27:40.178Z",
+      "evaluated": 300,
+      "allCategoryAccuracy": 0.84,
+      "coreAccuracy": 0.8745,
+      "adversarialAccuracy": 0.7246,
+      "officialStyleMean": 0.7139,
+      "answerP95Ms": 14630,
+      "judgeP95Ms": 7223,
+      "wallClockMs": 667463
+    },
+    {
+      "run": 3,
+      "artifactSha256": "d9df4d43f6eb25cd06217b97275b8ce00f816e9afdf186e6e7f2b3dafbe1ead7",
+      "generatedAt": "2026-06-27T20:39:41.816Z",
+      "evaluated": 300,
+      "allCategoryAccuracy": 0.84,
+      "coreAccuracy": 0.8701,
+      "adversarialAccuracy": 0.7391,
+      "officialStyleMean": 0.7127,
+      "answerP95Ms": 13825,
+      "judgeP95Ms": 10304,
+      "wallClockMs": 679612
+    }
+  ],
+  "publicBoundary": {
+    "included": [
+      "aggregate metrics",
+      "run count",
+      "artifact hashes",
+      "dataset hash",
+      "protocol boundary"
+    ],
+    "excluded": [
+      "source code",
+      "raw answers",
+      "model reasoning",
+      "private route names",
+      "API keys",
+      "environment files",
+      "private user data",
+      "ranking internals"
+    ]
+  }
+}

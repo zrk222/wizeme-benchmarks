@@ -1,6 +1,6 @@
 # Memory Benchmark Comparison
 
-Generated: 2026-06-27T17:47:53.081825Z
+Generated: 2026-06-28T02:38:30.020102Z
 
 Only rows inside the same comparison group are directly comparable.
 
@@ -25,8 +25,8 @@ Revision: `3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376` | Task: `answer-quality` | 
 
 | System | Status | Primary score | FAMA | p95 ms | Runs | Evidence | Boundary |
 |---|---|---:|---:|---:|---:|---|---|
-| WizeMe | complete | 0.7933 | n/a | 7232.00 | 1 | public | Scoped 300-question tuning gate. Not a full-dataset or same-mode provider leaderboard result. |
-| WizeMe prior gate | complete | 0.7333 | n/a | 7524.00 | 1 | public | Prior scoped 300-question gate used only for the matched six-point lift comparison. |
+| WizeMe | complete | 0.8367 | n/a | 14630.00 | 3 | public | Three complete 300-question all-category runs. Core Categories 1-4 and adversarial Category 5 are disclosed separately. Not a full-dataset or same-mode provider leaderboard result. |
+| WizeMe prior gate | complete | 0.7333 | n/a | 7524.00 | 1 | public | Historical prior scoped 300-question gate. It predates the three-run dual quality lane and is not a same-run control. |
 
 ## LoCoMo / locomo10-dialog-turn
 

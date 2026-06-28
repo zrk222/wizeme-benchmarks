@@ -34,6 +34,6 @@
     "run_count": 1,
     "aggregate_public_receipt": true,
     "artifact_url": "https://zenodo.org/records/20970433",
-    "boundary": "Prior scoped 300-question gate used only for the matched six-point lift comparison."
+    "boundary": "Historical prior scoped 300-question gate. It predates the three-run dual quality lane and is not a same-run control."
   }
 }

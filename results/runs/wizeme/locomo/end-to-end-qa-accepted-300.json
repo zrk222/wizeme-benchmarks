@@ -18,22 +18,28 @@
   },
   "metrics": {
     "query_count": 300,
-    "correct": 238,
-    "accuracy": 0.7933,
-    "official_style_mean": 0.7147,
-    "answer_latency_p95_ms": 7232,
-    "judge_latency_p95_ms": 1070
+    "correct": 251,
+    "accuracy": 0.8367,
+    "accuracy_range_min": 0.83,
+    "accuracy_range_max": 0.84,
+    "core_categories_1_to_4_accuracy": 0.873,
+    "core_accuracy_range_min": 0.8701,
+    "core_accuracy_range_max": 0.8745,
+    "adversarial_category_5_accuracy": 0.715,
+    "official_style_mean": 0.7083,
+    "answer_latency_p95_ms": 14630,
+    "judge_latency_p95_ms": 12893
   },
   "provenance": {
-    "generated_at": "2026-06-27T15:42:54.518Z",
+    "generated_at": "2026-06-28T02:15:00.000Z",
     "source": "WizeMe LoCoMo end-to-end QA harness",
     "command": "Aggregate public receipt; answer and judge configuration retained for controlled review.",
     "hardware": {
       "class": "Windows x64 local evaluation workstation"
     },
-    "run_count": 1,
+    "run_count": 3,
     "aggregate_public_receipt": true,
-    "artifact_url": "https://zenodo.org/records/20970433",
-    "boundary": "Scoped 300-question tuning gate. Not a full-dataset or same-mode provider leaderboard result."
+    "artifact_url": "https://github.com/zrk222/wizeme-benchmarks/blob/main/results/wizeme-locomo-e2e-stability-3x300.json",
+    "boundary": "Three complete 300-question all-category runs. Core Categories 1-4 and adversarial Category 5 are disclosed separately. Not a full-dataset or same-mode provider leaderboard result."
   }
 }

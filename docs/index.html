@@ -79,11 +79,11 @@
     <div class="notice"><strong>Evidence boundary:</strong> Retrieval and end-to-end QA are separate metric families. LoCoMo Any@3 measures exact-turn retrieval across tightly clustered sessions; LongMemEval Any@3 measures answer-cluster retrieval across a larger haystack. The 300-question LoCoMo QA gate is not a full-dataset or same-mode provider leaderboard claim. Public artifacts disclose outcomes and reproducibility boundaries while withholding implementation configuration and private traces.</div>
     <h2>Current WizeMe public receipts</h2>
     <div class="metrics">
-      <div class="metric"><strong>79.33%</strong><span>LoCoMo E2E QA accepted gate</span></div>
+      <div class="metric"><strong>83.67%</strong><span>LoCoMo E2E QA all-category mean, 3 runs</span></div>
       <div class="metric"><strong>93.19%</strong><span>LongMemEval Recall Any@3</span></div>
       <div class="metric"><strong>18.777 ms</strong><span>LoCoMo low-latency cold p95</span></div>
     </div>
-    <p>The accepted 300-question LoCoMo end-to-end QA gate improved from 73.33% to 79.33%. LoCoMo full retrieval reaches 71.24% Any@3; its low-latency full gate records 18.777 ms cold p95. LongMemEval retrieval reaches 93.19% Any@3 with 11.827 ms cold p95. See the permanent <a href="https://doi.org/10.5281/zenodo.20970433">Zenodo receipt</a>.</p>
+    <p>The 3 x 300-question LoCoMo quality lane reaches an 83.67% all-category mean and 87.30% core Categories 1-4 mean. Category 5 robustness averages 71.50%, and conservative answer p95 is 14.630 s. The faster lane records 83.33% all-category at 7.047 s. These seconds measure model generation and judging, not retrieval. LoCoMo low-latency retrieval records 18.777 ms cold p95; LongMemEval retrieval reaches 93.19% Any@3 with 11.827 ms cold p95. See the permanent <a href="https://doi.org/10.5281/zenodo.20970433">Zenodo receipt</a>.</p>
     <h2>Comparison contract</h2>
     <table>
       <thead><tr><th>Required match</th><th>Why it matters</th></tr></thead>

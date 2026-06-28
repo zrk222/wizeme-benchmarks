@@ -31,12 +31,19 @@ Retrieval and end-to-end QA are separate metric families:
 | LoCoMo retrieval | 1,982 questions | Any@3 0.7124 (71.24%) | All@3 0.6070 (60.70%) | 422.520/17.159 ms cold/warm |
 | LoCoMo low-latency retrieval | 1,982 questions | Any@3 0.7109 (71.09%) | Any@15 0.8643 (86.43%) | 18.777/20.107 ms cold/warm |
 | LongMemEval retrieval | 470 questions | Any@3 0.9319 (93.19%) | All@50 0.8489 (84.89%) | 11.827/13.382 ms cold/warm |
-| LoCoMo E2E QA accepted gate | 300 questions | Accuracy 0.7933 (79.33%) | Official-style mean 0.7147 (71.47%) | 7.232/1.070 s answer/judge |
-| LoCoMo E2E QA prior gate | 300 questions | Accuracy 0.7333 (73.33%) | Official-style mean 0.7052 (70.52%) | 7.524/1.073 s answer/judge |
+| LoCoMo E2E QA dual quality lane | 3 x 300 questions | All-category mean 0.8367 (83.67%) | Core Categories 1-4 mean 0.8730 (87.30%) | 14.630/12.893 s conservative answer/judge |
+| LoCoMo E2E QA faster lane | 300 questions | All-category 0.8333 (83.33%) | Core Categories 1-4 0.8615 (86.15%) | 7.047/13.491 s answer/judge |
 
-The accepted LoCoMo QA gate improved by 6.00 percentage points over the matched
-prior gate. It is a scoped 300-question WizeMe harness result, not a full-dataset
-or same-mode provider leaderboard score.
+The all-category quality-lane mean is the lead QA number. Across three runs it
+ranged from 83.00% to 84.00%; the core Categories 1-4 range was 87.01% to
+87.45%. Category 5 robustness averaged 71.50% and is the accuracy weak spot.
+It tests adversarial no-answer, wrong-person, and evidence-scope handling rather
+than ordinary answer QA.
+
+Quality-lane answer p95 is 14.630 s. The faster lane gives back about one core
+accuracy point and cuts answer p95 to 7.047 s. Those seconds are answer-model
+and judge time, separate from sub-20 ms retrieval. These are scoped WizeMe
+300-question harness results, not a full-dataset or same-mode provider score.
 
 LoCoMo and LongMemEval use different evaluation protocols. LoCoMo Any@3
 measures exact-turn retrieval across tightly clustered sessions. LongMemEval
@@ -52,8 +59,10 @@ See [the public methods](comparison/METHODS.md), the aggregate receipts under
 
 - [Zenodo DOI 10.5281/zenodo.20970433](https://doi.org/10.5281/zenodo.20970433)
 - `comparison/WIZEME_PUBLIC_RESULTS_2026-06-27.md`
+- `comparison/WIZEME_LOCOMO_E2E_STABILITY_2026-06-27.md`
 - `results/wizeme-public-memory-benchmark-2026-06-27.json`
 - `results/wizeme-public-memory-datapackage-2026-06-27.json`
+- `results/wizeme-locomo-e2e-stability-3x300.json`
 
 The separate official LongMemEval QA workflow remains:
 
