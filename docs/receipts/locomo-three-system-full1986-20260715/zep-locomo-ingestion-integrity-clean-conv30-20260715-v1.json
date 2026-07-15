@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "wizeme_zep_locomo_ingestion_integrity_v1",
+  "generatedAt": "2026-07-15T06:01:50.800Z",
+  "status": "clean",
+  "dataset": {
+    "path": "C:/Users/rkatz/Downloads/wizeme-benchmarks/datasets/cache/locomo/locomo10.json",
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "selectedSampleIds": [
+      "conv-30"
+    ]
+  },
+  "sourceState": {
+    "path": "docs/reviews/zep-locomo-ingestion-clean-conv30-20260715-v1.state.json",
+    "runId": "zep-locomo-clean-conv30-20260715-v1"
+  },
+  "metrics": {
+    "samples": 1,
+    "expectedEpisodes": 369,
+    "matchedEpisodes": 369,
+    "returnedEpisodes": 369,
+    "integrityErrors": 0,
+    "duplicateExtraEpisodes": 0
+  },
+  "samples": [
+    {
+      "sampleId": "conv-30",
+      "status": "clean",
+      "expected": 369,
+      "returned": 369,
+      "matched": 369,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    }
+  ],
+  "publicationGate": {
+    "passed": true,
+    "rule": "Publication requires every released turn exactly once, with matching content, timestamp, and processed status."
+  },
+  "boundary": "The receipt stores aggregate counts and released turn IDs only. It excludes conversation text, Zep user IDs, thread IDs, and credentials."
+}

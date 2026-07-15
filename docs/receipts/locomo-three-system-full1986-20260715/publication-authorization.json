@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "wizeme_benchmark_publication_authorization_v1",
+  "authorized": true,
+  "authorizedAt": "2026-07-15T06:30:15Z",
+  "bundleManifestSha256": "a1b65482687796345797be3cbb9ed844220a6b771019f58b2a1159375e4d087a",
+  "rightOfReply": {
+    "status": "owner_waived",
+    "evidence": "publication-boundary.md"
+  },
+  "claimBoundary": "Matched internal LoCoMo reference on 1,986 exact same-ID rows with zero execution errors, DeepSeek V4 Flash answer model, and Grok-4.5 judge. J-score and official-style mean are separate. This is not a universal leaderboard or SOTA claim."
+}

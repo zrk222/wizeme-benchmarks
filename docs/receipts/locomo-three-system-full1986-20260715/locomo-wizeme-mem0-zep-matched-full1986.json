@@ -1,0 +1,578 @@
+{
+  "schemaVersion": "wizeme_mem0_zep_matched_locomo_reference_v1",
+  "generatedAt": "2026-07-15T06:27:00.825Z",
+  "status": "complete",
+  "publicationGate": {
+    "passed": true,
+    "reason": "Required Zep clean-conversation correction is present and verified."
+  },
+  "scope": {
+    "evaluated": 1986,
+    "errors": 0,
+    "categories": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "datasetSha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  },
+  "controlledExperiment": {
+    "answerModel": "deepseek/deepseek-v4-flash",
+    "judgeModel": "x-ai/grok-4.5",
+    "fixedChecks": {
+      "mode": true,
+      "answerStyle": true,
+      "answerRefinement": true,
+      "sessionTemporalResolver": true,
+      "answerabilityGuard": true,
+      "datasetSha256": true,
+      "evidenceTopK": true
+    },
+    "exactQuestionIdMatch": true,
+    "exactCategoryMatch": true,
+    "zepCorrectionRequired": true,
+    "contextModesAreSystemUnderTest": true,
+    "answerTransportMatched": false,
+    "judgeTransportMatched": true,
+    "latencyComparableAcrossAllThree": false,
+    "costComparableAcrossAllThree": false,
+    "boundary": "Accuracy is same-ID, same-answer-model, same-judge, same-scoring-harness evidence. Retrieval implementation and context mode are the systems under test. Latency and cost are comparable only when transport and accounting are also matched."
+  },
+  "systems": [
+    {
+      "id": "wizeme",
+      "label": "WizeMe",
+      "evaluated": 1986,
+      "correct": 1379,
+      "errors": 0,
+      "jScorePct": 69.44,
+      "officialStyleMeanPct": 68.63,
+      "contextMode": "observation-graph-hybrid",
+      "answerTransport": "openrouter",
+      "judgeTransport": "openrouter_chat_completions",
+      "sourceReceipt": "docs/reviews/locomo-jscore-openrouter-deepseekv4-grok45-graph-full1986.json",
+      "sourceSha256": "960e3b14b2b06364e5b3255a68cff3c4c650c9940f7858e4e41fb7ffc712e532",
+      "telemetry": {
+        "retrieval": {
+          "receipt": "docs/reviews/locomo-full-v132-all-window20-1x.json",
+          "receiptSha256": "52d1aacac8e89f2f497c5a84f5e9560b91e691e21fc7ea86e11b2356944c449f",
+          "p95Ms": null,
+          "coldP95Ms": null,
+          "warmP95Ms": null
+        },
+        "answerP95Ms": 14027,
+        "judgeP95Ms": 8022,
+        "providerPromptCache": {
+          "mode": "on",
+          "ttlSeconds": 1800,
+          "answer": {
+            "hitTokens": 5761152,
+            "missTokens": 16409048,
+            "reportedTokens": 22170200,
+            "hitRatePct": 25.99,
+            "responseCacheHitRows": 321,
+            "responseCacheMissRows": 1665
+          },
+          "judge": {
+            "hitTokens": 431104,
+            "missTokens": 210351,
+            "reportedTokens": 641455,
+            "hitRatePct": 67.21,
+            "responseCacheHitRows": 292,
+            "responseCacheMissRows": 1694
+          },
+          "boundary": "Provider prompt-cache telemetry is used for latency/cost analysis only. It does not alter retrieved evidence, answer scoring, or official-style correctness."
+        },
+        "usage": {
+          "answer": {
+            "promptTokens": 22170200,
+            "completionTokens": 547532,
+            "totalTokens": 22717732,
+            "reportedCostUsd": 2.444774,
+            "rowsWithUsage": 1986
+          },
+          "judge": {
+            "promptTokens": 641455,
+            "completionTokens": 388410,
+            "totalTokens": 1029865,
+            "reportedCostUsd": 2.966714,
+            "rowsWithUsage": 1986
+          }
+        },
+        "usageBoundary": "Provider-reported selected-call usage. Dual-candidate answer generation or provider-side work may not be fully represented."
+      }
+    },
+    {
+      "id": "mem0",
+      "label": "Mem0",
+      "evaluated": 1986,
+      "correct": 1198,
+      "errors": 0,
+      "jScorePct": 60.32,
+      "officialStyleMeanPct": 57.77,
+      "contextMode": "external-memory",
+      "answerTransport": "deepseek",
+      "judgeTransport": "openrouter_chat_completions",
+      "sourceReceipt": "docs/reviews/mem0-locomo-jscore-deepseek-direct-grok45-platform-full1986.json",
+      "sourceSha256": "18c0c74a51f73ace16d712ee0529552f449ca34472db7d3130039d4e3f474e34",
+      "telemetry": {
+        "retrieval": {
+          "receipt": "docs/reviews/mem0-locomo-retrieval-reference-latest.json",
+          "receiptSha256": "01d3fb7458fa6cd477d4b707747cac720a53061a294f5859cc06999eb82e58c4",
+          "p95Ms": 984,
+          "coldP95Ms": null,
+          "warmP95Ms": null
+        },
+        "answerP95Ms": 13430,
+        "judgeP95Ms": 8918,
+        "providerPromptCache": {
+          "mode": "on",
+          "ttlSeconds": 1800,
+          "answer": {
+            "hitTokens": 0,
+            "missTokens": 0,
+            "reportedTokens": 0,
+            "hitRatePct": null,
+            "responseCacheHitRows": 0,
+            "responseCacheMissRows": 0
+          },
+          "judge": {
+            "hitTokens": 495488,
+            "missTokens": 252626,
+            "reportedTokens": 748114,
+            "hitRatePct": 66.23,
+            "responseCacheHitRows": 8,
+            "responseCacheMissRows": 1978
+          },
+          "boundary": "Recomputed from every materialized row. Provider cache telemetry does not affect correctness."
+        },
+        "usage": {
+          "answer": {
+            "promptTokens": 9966651,
+            "completionTokens": 537461,
+            "totalTokens": 10504112,
+            "reportedCostUsd": 0,
+            "rowsWithUsage": 1986
+          },
+          "judge": {
+            "promptTokens": 748114,
+            "completionTokens": 480335,
+            "totalTokens": 1228449,
+            "reportedCostUsd": 3.635006,
+            "rowsWithUsage": 1986
+          }
+        },
+        "usageBoundary": "Provider-reported selected-call usage. Dual-candidate answer generation or provider-side work may not be fully represented."
+      }
+    },
+    {
+      "id": "zep",
+      "label": "Zep",
+      "evaluated": 1986,
+      "correct": 936,
+      "errors": 0,
+      "jScorePct": 47.13,
+      "officialStyleMeanPct": 48.47,
+      "contextMode": "external-memory",
+      "answerTransport": "openrouter",
+      "judgeTransport": "openrouter_chat_completions",
+      "sourceReceipt": "docs/reviews/zep-locomo-jscore-openrouter-deepseekv4-grok45-ready-v2-full1986.json",
+      "sourceSha256": "807099b8a5b2cb254a1f111f0a4ea863ccb7d764f955221f86ad319a15c07d4b",
+      "telemetry": {
+        "retrieval": {
+          "receipt": "docs/reviews/zep-locomo-retrieval-ready-v2-auto-full1986-corrected-conv30.json",
+          "receiptSha256": "b07a53098df5f23f3db2d25b180d3cb0080831c0d386a1a9761989edaf620de9",
+          "p95Ms": 1905,
+          "coldP95Ms": null,
+          "warmP95Ms": null
+        },
+        "answerP95Ms": 31804,
+        "judgeP95Ms": 6335,
+        "providerPromptCache": {
+          "mode": "on",
+          "ttlSeconds": 1800,
+          "answer": {
+            "hitTokens": 1624448,
+            "missTokens": 17952318,
+            "reportedTokens": 19576766,
+            "hitRatePct": 8.3,
+            "responseCacheHitRows": 18,
+            "responseCacheMissRows": 1928
+          },
+          "judge": {
+            "hitTokens": 477312,
+            "missTokens": 257633,
+            "reportedTokens": 734945,
+            "hitRatePct": 64.95,
+            "responseCacheHitRows": 5,
+            "responseCacheMissRows": 1941
+          },
+          "boundary": "Provider prompt-cache telemetry is used for latency/cost analysis only. It does not alter retrieved evidence, answer scoring, or official-style correctness."
+        },
+        "usage": {
+          "answer": {
+            "promptTokens": 19991314,
+            "completionTokens": 568203,
+            "totalTokens": 20559517,
+            "reportedCostUsd": 2.455982,
+            "rowsWithUsage": 1986
+          },
+          "judge": {
+            "promptTokens": 749409,
+            "completionTokens": 490998,
+            "totalTokens": 1240407,
+            "reportedCostUsd": 3.726918,
+            "rowsWithUsage": 1986
+          }
+        },
+        "usageBoundary": "Provider-reported selected-call usage. Dual-candidate answer generation or provider-side work may not be fully represented."
+      }
+    }
+  ],
+  "pairwise": {
+    "wizemeVsMem0": {
+      "left": "wizeme",
+      "right": "mem0",
+      "bothCorrect": 1035,
+      "leftOnly": 344,
+      "rightOnly": 163,
+      "bothWrong": 444,
+      "netWins": 181,
+      "mcnemarExactP": 0
+    },
+    "wizemeVsZep": {
+      "left": "wizeme",
+      "right": "zep",
+      "bothCorrect": 825,
+      "leftOnly": 554,
+      "rightOnly": 111,
+      "bothWrong": 496,
+      "netWins": 443,
+      "mcnemarExactP": 0
+    },
+    "zepVsMem0": {
+      "left": "zep",
+      "right": "mem0",
+      "bothCorrect": 714,
+      "leftOnly": 222,
+      "rightOnly": 484,
+      "bothWrong": 566,
+      "netWins": -262,
+      "mcnemarExactP": 0
+    }
+  },
+  "breakdown": {
+    "byCategory": {
+      "category_1": {
+        "wizeme": {
+          "evaluated": 282,
+          "correct": 131,
+          "jScorePct": 46.45,
+          "officialStyleMeanPct": 56.04
+        },
+        "mem0": {
+          "evaluated": 282,
+          "correct": 115,
+          "jScorePct": 40.78,
+          "officialStyleMeanPct": 54.31
+        },
+        "zep": {
+          "evaluated": 282,
+          "correct": 88,
+          "jScorePct": 31.21,
+          "officialStyleMeanPct": 42.95
+        }
+      },
+      "category_2": {
+        "wizeme": {
+          "evaluated": 321,
+          "correct": 234,
+          "jScorePct": 72.9,
+          "officialStyleMeanPct": 69.63
+        },
+        "mem0": {
+          "evaluated": 321,
+          "correct": 218,
+          "jScorePct": 67.91,
+          "officialStyleMeanPct": 57.82
+        },
+        "zep": {
+          "evaluated": 321,
+          "correct": 76,
+          "jScorePct": 23.68,
+          "officialStyleMeanPct": 34.93
+        }
+      },
+      "category_3": {
+        "wizeme": {
+          "evaluated": 96,
+          "correct": 41,
+          "jScorePct": 42.71,
+          "officialStyleMeanPct": 35.85
+        },
+        "mem0": {
+          "evaluated": 96,
+          "correct": 43,
+          "jScorePct": 44.79,
+          "officialStyleMeanPct": 37.77
+        },
+        "zep": {
+          "evaluated": 96,
+          "correct": 33,
+          "jScorePct": 34.38,
+          "officialStyleMeanPct": 28.38
+        }
+      },
+      "category_4": {
+        "wizeme": {
+          "evaluated": 841,
+          "correct": 612,
+          "jScorePct": 72.77,
+          "officialStyleMeanPct": 71.12
+        },
+        "mem0": {
+          "evaluated": 841,
+          "correct": 474,
+          "jScorePct": 56.36,
+          "officialStyleMeanPct": 52.36
+        },
+        "zep": {
+          "evaluated": 841,
+          "correct": 463,
+          "jScorePct": 55.05,
+          "officialStyleMeanPct": 52.99
+        }
+      },
+      "category_5": {
+        "wizeme": {
+          "evaluated": 446,
+          "correct": 361,
+          "jScorePct": 80.94,
+          "officialStyleMeanPct": 78.25
+        },
+        "mem0": {
+          "evaluated": 446,
+          "correct": 348,
+          "jScorePct": 78.03,
+          "officialStyleMeanPct": 74.44
+        },
+        "zep": {
+          "evaluated": 446,
+          "correct": 276,
+          "jScorePct": 61.88,
+          "officialStyleMeanPct": 57.51
+        }
+      }
+    },
+    "byPrimaryIntent": {
+      "fact": {
+        "wizeme": {
+          "evaluated": 881,
+          "correct": 601,
+          "jScorePct": 68.22,
+          "officialStyleMeanPct": 68.83
+        },
+        "mem0": {
+          "evaluated": 881,
+          "correct": 521,
+          "jScorePct": 59.14,
+          "officialStyleMeanPct": 59.95
+        },
+        "zep": {
+          "evaluated": 881,
+          "correct": 443,
+          "jScorePct": 50.28,
+          "officialStyleMeanPct": 51.06
+        }
+      },
+      "list": {
+        "wizeme": {
+          "evaluated": 197,
+          "correct": 131,
+          "jScorePct": 66.5,
+          "officialStyleMeanPct": 71.53
+        },
+        "mem0": {
+          "evaluated": 197,
+          "correct": 115,
+          "jScorePct": 58.38,
+          "officialStyleMeanPct": 55.58
+        },
+        "zep": {
+          "evaluated": 197,
+          "correct": 98,
+          "jScorePct": 49.75,
+          "officialStyleMeanPct": 51.2
+        }
+      },
+      "location": {
+        "wizeme": {
+          "evaluated": 134,
+          "correct": 91,
+          "jScorePct": 67.91,
+          "officialStyleMeanPct": 67.22
+        },
+        "mem0": {
+          "evaluated": 134,
+          "correct": 80,
+          "jScorePct": 59.7,
+          "officialStyleMeanPct": 56.68
+        },
+        "zep": {
+          "evaluated": 134,
+          "correct": 68,
+          "jScorePct": 50.75,
+          "officialStyleMeanPct": 49.83
+        }
+      },
+      "person": {
+        "wizeme": {
+          "evaluated": 94,
+          "correct": 75,
+          "jScorePct": 79.79,
+          "officialStyleMeanPct": 78.39
+        },
+        "mem0": {
+          "evaluated": 94,
+          "correct": 56,
+          "jScorePct": 59.57,
+          "officialStyleMeanPct": 57.17
+        },
+        "zep": {
+          "evaluated": 94,
+          "correct": 56,
+          "jScorePct": 59.57,
+          "officialStyleMeanPct": 55.29
+        }
+      },
+      "relation": {
+        "wizeme": {
+          "evaluated": 88,
+          "correct": 52,
+          "jScorePct": 59.09,
+          "officialStyleMeanPct": 44.24
+        },
+        "mem0": {
+          "evaluated": 88,
+          "correct": 47,
+          "jScorePct": 53.41,
+          "officialStyleMeanPct": 35.59
+        },
+        "zep": {
+          "evaluated": 88,
+          "correct": 45,
+          "jScorePct": 51.14,
+          "officialStyleMeanPct": 36.25
+        }
+      },
+      "temporal": {
+        "wizeme": {
+          "evaluated": 458,
+          "correct": 334,
+          "jScorePct": 72.93,
+          "officialStyleMeanPct": 69.73
+        },
+        "mem0": {
+          "evaluated": 458,
+          "correct": 303,
+          "jScorePct": 66.16,
+          "officialStyleMeanPct": 59.88
+        },
+        "zep": {
+          "evaluated": 458,
+          "correct": 156,
+          "jScorePct": 34.06,
+          "officialStyleMeanPct": 41.39
+        }
+      },
+      "visual": {
+        "wizeme": {
+          "evaluated": 134,
+          "correct": 95,
+          "jScorePct": 70.9,
+          "officialStyleMeanPct": 69.95
+        },
+        "mem0": {
+          "evaluated": 134,
+          "correct": 76,
+          "jScorePct": 56.72,
+          "officialStyleMeanPct": 55.59
+        },
+        "zep": {
+          "evaluated": 134,
+          "correct": 70,
+          "jScorePct": 52.24,
+          "officialStyleMeanPct": 53.51
+        }
+      }
+    }
+  },
+  "categoryProvenance": {
+    "kind": "released_code_category_contract",
+    "disclosure": "LoCoMo released-code category map: 1=multi-hop, 2=temporal, 3=open-domain, 4=single-hop, 5=adversarial. Public claims must not use paper-description ordering when labeling category IDs.",
+    "map": {
+      "1": {
+        "id": 1,
+        "label": "multi_hop",
+        "display": "Multi-hop",
+        "releasedCodeRole": "multi_hop",
+        "officialScoring": "multi_answer_f1"
+      },
+      "2": {
+        "id": 2,
+        "label": "temporal",
+        "display": "Temporal",
+        "releasedCodeRole": "temporal",
+        "officialScoring": "token_f1"
+      },
+      "3": {
+        "id": 3,
+        "label": "open_domain",
+        "display": "Open-domain",
+        "releasedCodeRole": "open_domain",
+        "officialScoring": "token_f1_first_gold_answer"
+      },
+      "4": {
+        "id": 4,
+        "label": "single_hop",
+        "display": "Single-hop",
+        "releasedCodeRole": "single_hop",
+        "officialScoring": "token_f1"
+      },
+      "5": {
+        "id": 5,
+        "label": "adversarial",
+        "display": "Adversarial",
+        "releasedCodeRole": "adversarial",
+        "officialScoring": "abstention_exact_no_information"
+      }
+    }
+  },
+  "intentProvenance": {
+    "kind": "deterministically_derived_not_dataset_native",
+    "source": "scripts/run-locomo-e2e-qa.mjs#detectQuestionAxes",
+    "inputs": [
+      "question text",
+      "dataset speaker names"
+    ],
+    "excludedInputs": [
+      "system answer",
+      "gold answer",
+      "judge outcome",
+      "system score"
+    ]
+  },
+  "telemetryBoundary": {
+    "comparableLatency": "N/A",
+    "comparableCost": "N/A",
+    "reason": "Observed values are retained for operations, but provider transport, cache state, and complete dual-call accounting are not matched across all three systems."
+  },
+  "reproduction": {
+    "build": "pnpm memory:build-three-system-locomo-comparison",
+    "verify": "pnpm test:locomo-three-system-comparison",
+    "secretBoundary": "Credentials are environment-only and absent from source, receipts, and commands."
+  },
+  "claimBoundary": "Matched internal reference, not a universal leaderboard or SOTA claim. J-score and official-style mean are separate. Mem0 is Platform V3 and Zep is its approved Cloud V3 reference profile. Accuracy conditions are pinned; unmatched telemetry is not ranked."
+}

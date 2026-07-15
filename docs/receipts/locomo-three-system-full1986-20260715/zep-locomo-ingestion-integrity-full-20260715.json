@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "wizeme_zep_locomo_ingestion_integrity_v1",
+  "generatedAt": "2026-07-15T05:05:45.348Z",
+  "status": "complete_with_duplicates",
+  "dataset": {
+    "path": "C:/Users/rkatz/Downloads/wizeme-benchmarks/datasets/cache/locomo/locomo10.json",
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "selectedSampleIds": [
+      "conv-26",
+      "conv-30",
+      "conv-41",
+      "conv-42",
+      "conv-43",
+      "conv-44",
+      "conv-47",
+      "conv-48",
+      "conv-49",
+      "conv-50"
+    ]
+  },
+  "sourceState": {
+    "path": "docs/reviews/zep-locomo-ingestion-full-20260714-v1.state.json",
+    "runId": "zep-full-20260714-v1"
+  },
+  "metrics": {
+    "samples": 10,
+    "expectedEpisodes": 5882,
+    "matchedEpisodes": 5882,
+    "returnedEpisodes": 5896,
+    "integrityErrors": 0,
+    "duplicateExtraEpisodes": 14
+  },
+  "samples": [
+    {
+      "sampleId": "conv-26",
+      "status": "clean",
+      "expected": 419,
+      "returned": 419,
+      "matched": 419,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-30",
+      "status": "complete_with_duplicates",
+      "expected": 369,
+      "returned": 383,
+      "matched": 369,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 14,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": [
+        {
+          "turnId": "D10:1",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:10",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:11",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:12",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:13",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:14",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:2",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:3",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:4",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:5",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:6",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:7",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:8",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        },
+        {
+          "turnId": "D10:9",
+          "count": 2,
+          "allContentEqual": true,
+          "allTimestampEqual": true,
+          "allProcessed": true
+        }
+      ]
+    },
+    {
+      "sampleId": "conv-41",
+      "status": "clean",
+      "expected": 663,
+      "returned": 663,
+      "matched": 663,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-42",
+      "status": "clean",
+      "expected": 629,
+      "returned": 629,
+      "matched": 629,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-43",
+      "status": "clean",
+      "expected": 680,
+      "returned": 680,
+      "matched": 680,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-44",
+      "status": "clean",
+      "expected": 675,
+      "returned": 675,
+      "matched": 675,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-47",
+      "status": "clean",
+      "expected": 689,
+      "returned": 689,
+      "matched": 689,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-48",
+      "status": "clean",
+      "expected": 681,
+      "returned": 681,
+      "matched": 681,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-49",
+      "status": "clean",
+      "expected": 509,
+      "returned": 509,
+      "matched": 509,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    },
+    {
+      "sampleId": "conv-50",
+      "status": "clean",
+      "expected": 568,
+      "returned": 568,
+      "matched": 568,
+      "integrityErrors": 0,
+      "duplicateExtraEpisodes": 0,
+      "missingTurnIds": [],
+      "contentMismatchTurnIds": [],
+      "timestampMismatchTurnIds": [],
+      "unprocessedTurnIds": [],
+      "unknownTurnIds": [],
+      "duplicateTurnIds": []
+    }
+  ],
+  "publicationGate": {
+    "passed": false,
+    "rule": "Publication requires every released turn exactly once, with matching content, timestamp, and processed status."
+  },
+  "boundary": "The receipt stores aggregate counts and released turn IDs only. It excludes conversation text, Zep user IDs, thread IDs, and credentials."
+}

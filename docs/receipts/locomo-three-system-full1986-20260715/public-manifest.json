@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "wizeme_public_receipt_v1",
+  "slug": "locomo-three-system-full1986-20260715",
+  "title": "WizeMe, Mem0, and Zep Matched LoCoMo Full Gate",
+  "publishedAt": "2026-07-15T06:30:15Z",
+  "sourceManifestSha256": "a1b65482687796345797be3cbb9ed844220a6b771019f58b2a1159375e4d087a",
+  "publicationAuthorizationSha256": "535c9d2fb1ba728948e458ea5729bd0883aa627c151d25cde3f125fbb75971c3",
+  "publicUrl": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/",
+  "artifacts": [
+    {
+      "file": "manifest.json",
+      "sha256": "a1b65482687796345797be3cbb9ed844220a6b771019f58b2a1159375e4d087a",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/manifest.json"
+    },
+    {
+      "file": "locomo-wizeme-mem0-zep-matched-full1986.json",
+      "sha256": "38e93604a7ca09501fe9c2ec6f36f7221e734c6b9914ce79d080a5147c8d292d",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/locomo-wizeme-mem0-zep-matched-full1986.json"
+    },
+    {
+      "file": "locomo-wizeme-mem0-zep-matched-full1986.md",
+      "sha256": "45042be3344700c53642b0f5a3cddcced86c98a617f26fa64526b802a5a0cf3d",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/locomo-wizeme-mem0-zep-matched-full1986.md"
+    },
+    {
+      "file": "locomo-wizeme-mem0-zep-matched-full1986.png",
+      "sha256": "2f3be967e117eb9b380e606151146838b85ff3c6ffa7c89914caad5bd41f353b",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/locomo-wizeme-mem0-zep-matched-full1986.png"
+    },
+    {
+      "file": "locomo-jscore-openrouter-deepseekv4-grok45-graph-full1986.json",
+      "sha256": "960e3b14b2b06364e5b3255a68cff3c4c650c9940f7858e4e41fb7ffc712e532",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/locomo-jscore-openrouter-deepseekv4-grok45-graph-full1986.json"
+    },
+    {
+      "file": "mem0-locomo-jscore-deepseek-direct-grok45-platform-full1986.json",
+      "sha256": "18c0c74a51f73ace16d712ee0529552f449ca34472db7d3130039d4e3f474e34",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/mem0-locomo-jscore-deepseek-direct-grok45-platform-full1986.json"
+    },
+    {
+      "file": "zep-locomo-jscore-openrouter-deepseekv4-grok45-ready-v2-full1986.json",
+      "sha256": "807099b8a5b2cb254a1f111f0a4ea863ccb7d764f955221f86ad319a15c07d4b",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/zep-locomo-jscore-openrouter-deepseekv4-grok45-ready-v2-full1986.json"
+    },
+    {
+      "file": "zep-locomo-ingestion-integrity-full-20260715.json",
+      "sha256": "24ad76fb819b780f1da67cf3c7fd6c3104254192a63583eab82b4c267cf712d5",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/zep-locomo-ingestion-integrity-full-20260715.json"
+    },
+    {
+      "file": "zep-locomo-ingestion-integrity-clean-conv30-20260715-v1.json",
+      "sha256": "05f1dfb7fab86b687dca22a82abe2b291469772f0ca891e6ca5d9e23917e03d5",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/zep-locomo-ingestion-integrity-clean-conv30-20260715-v1.json"
+    },
+    {
+      "file": "publication-boundary.md",
+      "sha256": "0f2a775cf2d5cdc12731b2d2f7c2f84343cc30b2cdc00b623f7c9180a6620a76",
+      "url": "https://zrk222.github.io/wizeme-benchmarks/receipts/locomo-three-system-full1986-20260715/publication-boundary.md"
+    }
+  ],
+  "claimBoundary": "Matched internal LoCoMo reference on 1,986 exact same-ID rows with zero execution errors, DeepSeek V4 Flash answer model, and Grok-4.5 judge. J-score and official-style mean are separate. This is not a universal leaderboard or SOTA claim."
+}

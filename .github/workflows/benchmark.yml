@@ -55,6 +55,8 @@ jobs:
             --reason "MEMGPT_COMMAND and provider credentials are not configured."
       - name: Validate normalized results
         run: python scripts/validate_results.py
+      - name: Verify receipt publisher
+        run: python -m unittest scripts/test_publish_receipt_bundle.py
       - name: Generate comparison report
         run: python scripts/generate_comparison_report.py
       - name: Upload results
