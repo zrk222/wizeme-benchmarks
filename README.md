@@ -62,6 +62,8 @@ See [the public methods](comparison/METHODS.md), the aggregate receipts under
 - `comparison/WIZEME_LOCOMO_E2E_STABILITY_2026-06-27.md`
 - `results/wizeme-public-memory-benchmark-2026-06-27.json`
 - `results/wizeme-public-memory-datapackage-2026-06-27.json`
+- `results/wizeme-public-memory-benchmark-2026-07-16.json`
+- `results/wizeme-public-memory-datapackage-2026-07-16.json`
 - `results/wizeme-locomo-e2e-stability-3x300.json`
 
 The separate official LongMemEval QA workflow remains:
